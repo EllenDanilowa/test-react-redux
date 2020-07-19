@@ -6,7 +6,7 @@ const configureStore = (preloadedState) => {
   const enhancers = [];
 
   if (process.env.NODE_ENV === 'development') {
-    const devToolsExtension = window.devToolsExtension
+    const devToolsExtension = window.devToolsExtension;
 
     if (typeof devToolsExtension === 'function') {
       enhancers.push(devToolsExtension());
@@ -15,11 +15,11 @@ const configureStore = (preloadedState) => {
 
   return createStore(
     reducers,
-    // preloadedState,
-    // compose(
-    //   ...enhancers
-    // ),
+    preloadedState,
     applyMiddleware(thunk),
+    compose(
+      ...enhancers
+    )
   );
 };
 
