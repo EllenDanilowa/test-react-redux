@@ -3,42 +3,19 @@ import {Link} from 'react-router-dom';
 import PropTypes from 'prop-types';
 import Input from '../Form/Input/Input';
 import Button from '../Form/Button/Button';
-
-const EMAIL_REGEX = RegExp(/^(([^<>()[\].,;:\s@"]+(\.[^<>()[\].,;:\s@"]+)*)|(".+"))@(([^<>()[\].,;:\s@"]+\.)+[^<>()[\].,;:\s@"]{2,})$/i);
-const FIELD_NAMES = {
-  FIRST_NAME: {
-    name: 'firstname',
-    defaultValue: '',
-    rules: {required: true, min: 2, max: 50}
-  },
-  LAST_NAME: {
-    name: 'lastname',
-    defaultValue: '',
-    rules: {required: true, min: 2, max: 50}
-  },
-  EMAIL: {
-    name: 'email',
-    defaultValue: '',
-    rules: {required: true, regexp: EMAIL_REGEX}
-  },
-  PHONE: {
-    name: 'phone',
-    defaultValue: '',
-    rules: {required: true}
-  },
-  HAS_PREMIUM: {
-    name: 'hasPremium',
-    defaultValue: false
-  }
-};
+import {Title} from './MerchantForm.styled';
+import {
+  DEFAULT_ERROR_MESSAGE,
+  FIELDS
+} from './MerchantForm.constants';
 
 const createInitialState = (initObj = {}) => {
   const state = {errors: {}};
-  Object.values(FIELD_NAMES).forEach((field) => {
+  Object.values(FIELDS).forEach((field) => {
     const {name, defaultValue} = field;
 
     state[name] = initObj[name] || defaultValue;
-    state.errors[name] = null;
+    state.errors[name] = '';
   });
 
   return state;
@@ -46,9 +23,11 @@ const createInitialState = (initObj = {}) => {
 
 const validateForm = (errors) => {
   let valid = true;
-  Object.values(errors).forEach(
-    (val) => val && (valid = false)
-  );
+
+  Object.values(errors).forEach((val) => (
+    val.length && (valid = false)
+  ));
+
   return valid;
 };
 
@@ -58,32 +37,47 @@ class MerchantForm extends Component {
 
     this.state = createInitialState(this.props.initValue);
 
-    this.onFormChange = this.onFormChange.bind(this);
+    this.onInputChange = this.onInputChange.bind(this);
     // this.onAvatarChange = this.onAvatarChange.bind(this);
     this.onSubmit = this.onSubmit.bind(this);
   }
 
-  onFormChange(event) {
-    event.preventDefault();
+  validateForm() {
+    const errors = {};
+
+    Object.values(FIELDS).forEach((field) => {
+      const {rules = {}, name} = field;
+      const value = this.state[field.name];
+
+      if (rules.required) {
+        errors[name] = value.length === 0;
+      }
+
+      if (rules.max) {
+        errors[name] = value.length > rules.max;
+      }
+
+      if (rules.min) {
+        errors[name] = value.length < rules.min;
+      }
+
+      if (rules.regexp) {
+        errors[name] = !rules.regexp.test(value);
+      }
+
+      errors[name] = errors[name] ? (field.errorMessage || DEFAULT_ERROR_MESSAGE) : '';
+    });
+
+    this.setState({errors});
+
+    return validateForm(errors);
+  }
+
+  onInputChange(event) {
     const {name, value} = event.target;
-    const errors = this.state.errors;
+    const {errors} = this.state;
 
-    const settings = Object.values(FIELD_NAMES).find((field) => field.name === name);
-
-    if (!settings) return; // TODO error???
-
-    const {rules} = settings;
-
-    if (rules.required) {
-      errors[name] = value.length !== 0;
-    } else if (rules.max) {
-      errors[name] = value.length > rules.max;
-    } else if (rules.min) {
-      errors[name] = value.length < rules.min;
-    } else if (rules.regexp) {
-      errors[name] = rules.regexp.test(value);
-    }
-
+    errors[name] = '';
     this.setState({errors, [name]: value});
   }
 
@@ -95,7 +89,7 @@ class MerchantForm extends Component {
   onSubmit(event) {
     event.preventDefault();
 
-    if (validateForm(this.state.errors)) {
+    if (this.validateForm()) {
       this.props.submit(this.state);
     }
   }
@@ -103,29 +97,36 @@ class MerchantForm extends Component {
   render() {
     return (
       <div>
+        {this.props.title && (
+          <Title>{this.props.title}</Title>
+        )}
         <form onSubmit={this.onSubmit} noValidate>
           <Input name="firstname"
                  title="First name"
+                 error={this.state.errors.firstname}
                  value={this.state.firstname}
-                 onChange={this.onFormChange}/>
+                 onChange={this.onInputChange}/>
           <Input name="lastname"
                  title="Last name"
+                 error={this.state.errors.lastname}
                  value={this.state.lastname}
-                 onChange={this.onFormChange}/>
+                 onChange={this.onInputChange}/>
           <Input name="email"
                  title="Email"
+                 error={this.state.errors.email}
                  value={this.state.email}
-                 onChange={this.onFormChange}/>
+                 onChange={this.onInputChange}/>
           <Input name="phone"
                  type="tel"
                  title="Phone"
+                 error={this.state.errors.phone}
                  value={this.state.phone}
-                 onChange={this.onFormChange}/>
+                 onChange={this.onInputChange}/>
           <Input name="hasPremium"
                  type="checkbox"
                  title="Premium"
                  value={this.state.hasPremium}
-                 onChange={this.onFormChange}/>
+                 onChange={this.onInputChange}/>
 
           {/*<div>*/}
           {/*  <label htmlFor="avatar">Avatar</label>*/}
@@ -133,7 +134,7 @@ class MerchantForm extends Component {
           {/*         onChange={this.onAvatarChange}/>*/}
           {/*</div>*/}
 
-          <Button title={this.props.submitTitle} type="submit"/>
+          <Button title={this.props.submitTitle}/>
         </form>
         <Link to="/">Cancel</Link>
       </div>
@@ -153,7 +154,8 @@ MerchantForm.propTypes = {
     bids: PropTypes.array
   }),
   submit: PropTypes.func.isRequired,
-  submitTitle: PropTypes.string.isRequired
+  submitTitle: PropTypes.string.isRequired,
+  title: PropTypes.string
 };
 
 export default MerchantForm;

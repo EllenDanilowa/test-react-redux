@@ -1,9 +1,26 @@
 import React, {Component} from 'react';
 import {Link} from 'react-router-dom';
 import PropTypes from 'prop-types';
-import Bid from '../Bid/Bid';
-import {connect} from 'react-redux';
-import {deleteMerchant} from '../../redux/merchant/merchant.actions';
+import {
+  MerchantWrapper,
+  Avatar,
+  Name,
+  ContentWrapper,
+  Icon,
+  LargeIcon,
+  PremiumIcon,
+  ActionsWrapper,
+  ContentItem,
+  DeleteButton
+} from './Merchant.styled';
+import Bid from './Bid/Bid';
+import Accordion from './Accordion/Accordion';
+import defaultAvatar from './assets/default-avatar.png';
+import mailIcon from './assets/mail.svg';
+import phoneIcon from './assets/phone.svg';
+import premiumIcon from './assets/premium-user.svg';
+import editIcon from './assets/edit.svg';
+import deleteIcon from './assets/delete.svg';
 
 class Merchant extends Component {
   constructor(props) {
@@ -20,20 +37,39 @@ class Merchant extends Component {
     const {item} = this.props;
 
     return (
-      <ul>
-        <li>{item.firstname}</li>
-        <li>{item.lastname}</li>
-        <li>{item.avatarUrl}</li>
-        <li>{item.string}</li>
-        <li>{item.email}</li>
-        <li>{item.phone}</li>
-        <li>{item.hasPremium}</li>
-        <li>{item.bids.map((bid) => (
-          <Bid key={bid.id} item={bid}/>
-        ))}</li>
-        <Link to={`/edit/${item.id}`}>Edit</Link>
-        <button onClick={this.deleteMerchant}>Delete</button>
-      </ul>
+      <MerchantWrapper>
+        {item.hasPremium && <PremiumIcon src={premiumIcon} alt="Premium user" title="Premium user"/>}
+        <Avatar src={item.avatarUrl || defaultAvatar} alt="avatar" />
+        <ContentWrapper>
+          <Name>{item.firstname} {item.lastname}</Name>
+
+          <ContentItem>
+            <Icon src={mailIcon}/>
+            <span>{item.email}</span>
+          </ContentItem>
+          <ContentItem>
+            <Icon src={phoneIcon}/>
+            <span>{item.phone}</span>
+          </ContentItem>
+
+          {Boolean(item.bids.length) && (
+            <Accordion title="See bids">
+              <div>{item.bids.map((bid) => (
+                <Bid key={bid.id} item={bid}/>
+              ))}</div>
+            </Accordion>
+          )}
+
+        </ContentWrapper>
+        <ActionsWrapper>
+          <Link to={`/edit/${item.id}`}>
+            <LargeIcon src={editIcon} />
+          </Link>
+          <DeleteButton onClick={this.deleteMerchant}>
+            <LargeIcon src={deleteIcon} />
+          </DeleteButton>
+        </ActionsWrapper>
+      </MerchantWrapper>
     );
   }
 }
@@ -52,10 +88,4 @@ Merchant.propTypes = {
   delete: PropTypes.func.isRequired
 };
 
-const mapDispatchToProps = (dispatch) => ({
-  delete: (id) => {
-    dispatch(deleteMerchant(id));
-  }
-});
-
-export default connect(() => ({}), mapDispatchToProps)(Merchant);
+export default Merchant;

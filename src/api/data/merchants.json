@@ -3,7 +3,7 @@
     "id": "0",
     "firstname": "name 1",
     "lastname": "lastname 1",
-    "avatarUrl": "avatar",
+    "avatarUrl": "",
     "email": "test1@test.com",
     "phone": "1000000",
     "hasPremium": true
@@ -12,7 +12,7 @@
     "id": "1",
     "firstname": "name 2",
     "lastname": "lastname 2",
-    "avatarUrl": "avatar",
+    "avatarUrl": "",
     "email": "test2@test.com",
     "phone": "20000000",
     "hasPremium": false
@@ -21,7 +21,7 @@
     "id": "2",
     "firstname": "name 3",
     "lastname": "lastname 3",
-    "avatarUrl": "avatar",
+    "avatarUrl": "",
     "email": "test3@test.com",
     "phone": "30000000",
     "hasPremium": true

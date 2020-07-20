@@ -1,28 +1,26 @@
 import React, {Component} from 'react';
 import PropTypes from 'prop-types';
+import { ButtonComponent } from './Button.styled';
 
 class Button extends Component {
   render() {
     const {
       onClick,
-      title,
-      type
+      title
     } = this.props;
 
     return (
-      <button
-        onClick={onClick}
-        type={type || 'button'}>
+      <ButtonComponent
+        onClick={onClick}>
         {title}
-      </button>
+      </ButtonComponent>
     );
   }
 }
 
 Button.propTypes = {
   onClick: PropTypes.func,
-  title: PropTypes.string.isRequired,
-  type: PropTypes.string.isRequired
+  title: PropTypes.string.isRequired
 };
 
 export default Button;

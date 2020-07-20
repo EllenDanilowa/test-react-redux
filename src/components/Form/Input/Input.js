@@ -1,5 +1,11 @@
 import React, {Component} from 'react';
 import PropTypes from 'prop-types';
+import {
+  InputWrapper,
+  Label,
+  InputElement,
+  ErrorMessage
+} from './Input.styled';
 
 class Input extends Component {
   render() {
@@ -10,13 +16,14 @@ class Input extends Component {
       title,
       type,
       required,
-      value
+      value,
+      error
     } = this.props;
 
     return (
-      <div>
-        <label htmlFor={name}>{title}</label>
-        <input
+      <InputWrapper>
+        <Label htmlFor={name}>{title}</Label>
+        <InputElement
           id={name}
           name={name}
           type={type || 'text'}
@@ -24,8 +31,10 @@ class Input extends Component {
           onChange={onChange}
           placeholder={placeholder}
           required={required}
+          error={Boolean(error)}
         />
-      </div>
+        {error && <ErrorMessage>{error}</ErrorMessage>}
+      </InputWrapper>
     );
   }
 }
@@ -41,7 +50,8 @@ Input.propTypes = {
     PropTypes.string,
     PropTypes.number,
     PropTypes.bool
-  ]).isRequired
+  ]).isRequired,
+  error: PropTypes.string
 };
 
 export default Input;
