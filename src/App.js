@@ -11,8 +11,8 @@ import NewMerchantPage from './routes/NewMerchant/NewMerchant';
 import EditMerchantPage from './routes/EditMerchant/EditMerchant';
 import logo from './logo.png';
 import './App.css';
-import {fetchMerchants} from "./redux/actions/merchant";
-import {connect} from "react-redux";
+import {fetchMerchants} from './redux/merchant/merchant.actions';
+import {connect} from 'react-redux';
 
 class App extends Component {
   componentDidMount() {

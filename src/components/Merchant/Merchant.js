@@ -3,7 +3,7 @@ import {Link} from 'react-router-dom';
 import PropTypes from 'prop-types';
 import Bid from '../Bid/Bid';
 import {connect} from 'react-redux';
-import {deleteMerchant} from '../../redux/actions/merchant';
+import {deleteMerchant} from '../../redux/merchant/merchant.actions';
 
 class Merchant extends Component {
   constructor(props) {
@@ -26,6 +26,7 @@ class Merchant extends Component {
         <li>{item.avatarUrl}</li>
         <li>{item.string}</li>
         <li>{item.email}</li>
+        <li>{item.phone}</li>
         <li>{item.hasPremium}</li>
         <li>{item.bids.map((bid) => (
           <Bid key={bid.id} item={bid}/>

@@ -20,6 +20,8 @@
     "no-console": 0,
     "semi": 2,
     "semi-spacing": 2,
-    "space-before-function-paren": 0
+    "space-before-function-paren": 0,
+    "quotes": ["error", "single"],
+    "no-debugger": "off"
   }
 }

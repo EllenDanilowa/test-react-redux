@@ -6,7 +6,7 @@ import {
   ADD_NEW_MERCHANT,
   EDIT_MERCHANT,
   DELETE_MERCHANT,
-} from '../constants/merchant';
+} from './merchant.constants';
 
 export const fetchMerchants = () => {
   return (dispatch) => {

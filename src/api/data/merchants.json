@@ -5,7 +5,7 @@
     "lastname": "lastname 1",
     "avatarUrl": "avatar",
     "email": "test1@test.com",
-    "phone": "00000000",
+    "phone": "1000000",
     "hasPremium": true
   },
   {
@@ -14,7 +14,7 @@
     "lastname": "lastname 2",
     "avatarUrl": "avatar",
     "email": "test2@test.com",
-    "phone": "00000000",
+    "phone": "20000000",
     "hasPremium": false
   },
   {
@@ -23,7 +23,7 @@
     "lastname": "lastname 3",
     "avatarUrl": "avatar",
     "email": "test3@test.com",
-    "phone": "00000000",
+    "phone": "30000000",
     "hasPremium": true
   },
   {

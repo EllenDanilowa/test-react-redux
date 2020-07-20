@@ -1,8 +1,8 @@
 import React, {Component} from 'react';
 import PropTypes from 'prop-types';
 import MerchantForm from '../../components/MerchantForm/MerchantForm';
-import {addNewMerchant} from '../../redux/actions/merchant';
-import {connect} from "react-redux";
+import {addNewMerchant} from '../../redux/merchant/merchant.actions';
+import {connect} from 'react-redux';
 
 class NewMerchant extends Component {
   constructor(props) {
@@ -19,7 +19,7 @@ class NewMerchant extends Component {
     return (
       <div>
         <h3>Create a new merchant</h3>
-        <MerchantForm submit={this.createMerchant}/>
+        <MerchantForm submit={this.createMerchant} submitTitle="Create"/>
       </div>
     );
   }
