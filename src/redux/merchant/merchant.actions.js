@@ -1,11 +1,12 @@
 import API from '../../api/merchant';
+import {push} from 'connected-react-router';
 import {
   FETCH_MERCHANTS_BEGIN,
   FETCH_MERCHANTS_SUCCESS,
   FETCH_MERCHANTS_FAILURE,
-  ADD_NEW_MERCHANT,
-  EDIT_MERCHANT,
-  DELETE_MERCHANT,
+  CREATE_NEW_MERCHANT_SUCCESS,
+  UPDATE_MERCHANT_SUCCESS,
+  DELETE_MERCHANT_SUCCESS,
 } from './merchant.constants';
 
 export const fetchMerchants = () => {
@@ -18,16 +19,42 @@ export const fetchMerchants = () => {
   };
 };
 
-export const addMerchant = (item) => {
+export const createMerchant = (item) => {
   return (dispatch) => {
-    //dispatch(addMerchantsBegin());
+    //dispatch(createMerchantsBegin());
 
-    return API.addMerchant(item)
+    return API.create(item)
       .then((json) => {
-        dispatch(addNewMerchant((json.data)));
-        //dispatch(push(''));
+        dispatch(createNewMerchantSuccess((json.data)));
+        dispatch(push(''));
       });
-      //.catch((error) => dispatch(addMerchantFailure(error)));
+      //.catch((error) => dispatch(createMerchantFailure(error)));
+  };
+};
+
+export const updateMerchant = (item) => {
+  return (dispatch) => {
+    //dispatch(updateMerchantsBegin());
+
+    return API.update(item)
+      .then((json) => {
+        dispatch(updateMerchantSuccess((json.data)));
+        dispatch(push(''));
+      });
+    //.catch((error) => dispatch(updateMerchantsBegin(error)));
+  };
+};
+
+export const deleteMerchant = (item) => {
+  return (dispatch) => {
+    //dispatch(deleteMerchantsBegin());
+
+    return API.delete(item)
+      .then((json) => {
+        dispatch(deleteMerchantSuccess((json.data)));
+        dispatch(push(''));
+      });
+    //.catch((error) => dispatch(deleteMerchantsBegin(error)));
   };
 };
 
@@ -45,17 +72,17 @@ export const fetchMerchantsFailure = (error) => ({
   payload: {error}
 });
 
-export const addNewMerchant = (merchant) => ({
-  type: ADD_NEW_MERCHANT,
+export const createNewMerchantSuccess = (merchant) => ({
+  type: CREATE_NEW_MERCHANT_SUCCESS,
   payload: {merchant}
 });
 
-export const editMerchant = (merchant) => ({
-  type: EDIT_MERCHANT,
+export const updateMerchantSuccess = (merchant) => ({
+  type: UPDATE_MERCHANT_SUCCESS,
   payload: {merchant}
 });
 
-export const deleteMerchant = (id) => ({
-  type: DELETE_MERCHANT,
+export const deleteMerchantSuccess = (id) => ({
+  type: DELETE_MERCHANT_SUCCESS,
   payload: {id}
 });

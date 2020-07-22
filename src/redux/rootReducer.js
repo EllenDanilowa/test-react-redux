@@ -1,7 +1,9 @@
 import {combineReducers} from 'redux';
+import { connectRouter } from 'connected-react-router';
 import merchant from './merchant/merchant.reducer';
 
-const root = combineReducers({
+const root = (history) => combineReducers({
+  router: connectRouter(history),
   merchant
 });
 

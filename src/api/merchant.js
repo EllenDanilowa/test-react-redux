@@ -27,7 +27,7 @@ const getAll = () => {
   });
 };
 
-const addMerchant = (merchant) => {
+const create = (merchant) => {
   merchant.id = getRandomId();
 
   return new Promise((resolve) => {
@@ -35,7 +35,21 @@ const addMerchant = (merchant) => {
   });
 };
 
+const update = (merchant) => {
+  return new Promise((resolve) => {
+    setTimeout(() => resolve({data: merchant}), TIMEOUT);
+  });
+};
+
+const _delete = (id) => {
+  return new Promise((resolve) => {
+    setTimeout(() => resolve({data: id}), TIMEOUT);
+  });
+};
+
 export default {
   getAll,
-  addMerchant
+  create,
+  update,
+  delete: _delete
 };

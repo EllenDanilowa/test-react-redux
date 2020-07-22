@@ -8,37 +8,13 @@ import {
   DEFAULT_ERROR_MESSAGE,
   FIELDS
 } from './MerchantForm.constants';
-
-const createInitialState = (initObj = {}) => {
-  const state = {
-    ...initObj,
-    errors: {}
-  };
-  Object.values(FIELDS).forEach((field) => {
-    const {name, defaultValue} = field;
-
-    state[name] = state[name] || defaultValue;
-    state.errors[name] = '';
-  });
-
-  return state;
-};
-
-const validateForm = (errors) => {
-  let valid = true;
-
-  Object.values(errors).forEach((val) => (
-    val.length && (valid = false)
-  ));
-
-  return valid;
-};
+import { createFormInitialState, checkFormValidation } from './MerchantForm.utils';
 
 class MerchantForm extends Component {
   constructor(props) {
     super(props);
 
-    this.state = createInitialState(this.props.initValue);
+    this.state = createFormInitialState(FIELDS, this.props.initValue);
 
     this.onInputChange = this.onInputChange.bind(this);
     // this.onAvatarChange = this.onAvatarChange.bind(this);
@@ -73,7 +49,7 @@ class MerchantForm extends Component {
 
     this.setState({errors});
 
-    return validateForm(errors);
+    return checkFormValidation(errors);
   }
 
   onInputChange(event) {

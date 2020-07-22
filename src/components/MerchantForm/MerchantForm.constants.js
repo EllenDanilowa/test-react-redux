@@ -1,6 +1,7 @@
 const EMAIL_REGEX = RegExp(/^(([^<>()[\].,;:\s@"]+(\.[^<>()[\].,;:\s@"]+)*)|(".+"))@(([^<>()[\].,;:\s@"]+\.)+[^<>()[\].,;:\s@"]{2,})$/i);
 
 export const DEFAULT_ERROR_MESSAGE = 'Oops are you sure? – this doesn’t look right';
+
 export const FIELDS = {
   FIRST_NAME: {
     name: 'firstname',

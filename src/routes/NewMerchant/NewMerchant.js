@@ -1,10 +1,10 @@
 import {connect} from 'react-redux';
 import NewMerchant from './NewMerchant.component';
-import {addMerchant} from '../../redux/merchant/merchant.actions';
+import {createMerchant} from '../../redux/merchant/merchant.actions';
 
 const mapDispatchToProps = (dispatch) => ({
   createMerchant: (merchant) => {
-    dispatch(addMerchant(merchant));
+    dispatch(createMerchant(merchant));
   }
 });
 

@@ -62,7 +62,7 @@ class Merchant extends Component {
 
         </ContentWrapper>
         <ActionsWrapper>
-          <ActionLink to={`/edit/${item.id}`}>
+          <ActionLink to={`/update/${item.id}`}>
             <ActionIcon src={editIcon} />
           </ActionLink>
           <DeleteButton onClick={this.deleteMerchant}>

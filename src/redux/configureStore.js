@@ -1,6 +1,10 @@
+import { createBrowserHistory } from 'history';
 import { createStore, compose, applyMiddleware } from 'redux';
 import thunk from 'redux-thunk';
-import reducers from './rootReducer';
+import { routerMiddleware } from 'connected-react-router';
+import reducer from './rootReducer';
+
+export const history = createBrowserHistory();
 
 const configureStore = (preloadedState) => {
   const enhancers = [];
@@ -14,11 +18,15 @@ const configureStore = (preloadedState) => {
   }
 
   return createStore(
-    reducers,
+    reducer(history),
     preloadedState,
-    applyMiddleware(thunk),
+    //applyMiddleware(thunk),
     compose(
-      ...enhancers
+      ...enhancers,
+      applyMiddleware(
+        routerMiddleware(history), // for dispatching history actions
+        thunk
+      ),
     )
   );
 };

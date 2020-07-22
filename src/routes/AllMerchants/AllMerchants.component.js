@@ -6,6 +6,12 @@ import {Header, Title, PageWrapper, Icon} from './AllMerchants.styled';
 import PlusIcon from './assets/plus.svg';
 
 class AllMerchants extends Component {
+  componentDidMount() {
+    if (this.props.merchants.length) return; //TODO remove, coz we always should get refreshed data from server
+
+    this.props.fetchMerchants();
+  }
+
   render() {
     const {loading, error, merchants, deleteMerchant} = this.props;
 
@@ -14,7 +20,7 @@ class AllMerchants extends Component {
         <Header>
           <Title>All merchants</Title>
           <div>
-            <Link to='/add'>
+            <Link to='/create'>
               <Icon src={PlusIcon}/>
                 Add new merchant
             </Link>
@@ -40,7 +46,8 @@ AllMerchants.propTypes = {
   loading: PropTypes.bool,
   error: PropTypes.bool,
   merchants: PropTypes.array,
-  deleteMerchant: PropTypes.func.isRequired
+  deleteMerchant: PropTypes.func.isRequired,
+  fetchMerchants: PropTypes.func.isRequired
 };
 
 export default AllMerchants;

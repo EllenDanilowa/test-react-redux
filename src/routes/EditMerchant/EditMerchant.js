@@ -1,6 +1,6 @@
 import {connect} from 'react-redux';
 import EditMerchant from './EditMerchant.component';
-import {editMerchant} from '../../redux/merchant/merchant.actions';
+import {updateMerchant} from '../../redux/merchant/merchant.actions';
 import {getMerchantById} from '../../redux/merchant/merchant.selectors';
 
 const mapStateToProps = (state, props) => {
@@ -8,8 +8,8 @@ const mapStateToProps = (state, props) => {
 };
 
 const mapDispatchToProps = (dispatch) => ({
-  editMerchant: (merchant) => {
-    dispatch(editMerchant(merchant));
+  updateMerchant: (merchant) => {
+    dispatch(updateMerchant(merchant));
   }
 });
 

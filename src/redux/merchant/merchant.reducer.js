@@ -2,9 +2,9 @@ import {
   FETCH_MERCHANTS_BEGIN,
   FETCH_MERCHANTS_SUCCESS,
   FETCH_MERCHANTS_FAILURE,
-  ADD_NEW_MERCHANT,
-  EDIT_MERCHANT,
-  DELETE_MERCHANT
+  CREATE_NEW_MERCHANT_SUCCESS,
+  UPDATE_MERCHANT_SUCCESS,
+  DELETE_MERCHANT_SUCCESS
 } from './merchant.constants';
 
 const initialState = {
@@ -43,7 +43,7 @@ export default (state, action) => {
         items: []
       };
     }
-    case ADD_NEW_MERCHANT: {
+    case CREATE_NEW_MERCHANT_SUCCESS: {
       const newItem = action.payload.merchant;
 
       newItem.id = `${state.items.length}`; // random
@@ -54,7 +54,7 @@ export default (state, action) => {
         items: (state.items || []).concat([newItem])
       };
     }
-    case EDIT_MERCHANT: {
+    case UPDATE_MERCHANT_SUCCESS: {
       const updatedItem = action.payload.merchant;
       console.log(updatedItem);
       console.log(state.items.map((item) => item.id === updatedItem.id ? updatedItem : item));
@@ -63,7 +63,7 @@ export default (state, action) => {
         items: state.items.map((item) => item.id === updatedItem.id ? updatedItem : item)
       };
     }
-    case DELETE_MERCHANT: {
+    case DELETE_MERCHANT_SUCCESS: {
       const id = action.payload.id;
 
       return {

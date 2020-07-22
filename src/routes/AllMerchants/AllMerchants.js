@@ -1,6 +1,6 @@
 import {connect} from 'react-redux';
 import AllMerchants from './AllMerchants.component';
-import {deleteMerchant} from '../../redux/merchant/merchant.actions';
+import {deleteMerchant, fetchMerchants} from '../../redux/merchant/merchant.actions';
 
 const mapStateToProps = (state) => ({
   loading: state.merchant.loading,
@@ -9,9 +9,8 @@ const mapStateToProps = (state) => ({
 });
 
 const mapDispatchToProps = (dispatch) => ({
-  deleteMerchant: (id) => {
-    dispatch(deleteMerchant(id));
-  }
+  deleteMerchant: (id) => dispatch(deleteMerchant(id)),
+  fetchMerchants: () => dispatch(fetchMerchants())
 });
 
 export default connect(
