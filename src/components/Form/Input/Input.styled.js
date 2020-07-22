@@ -9,23 +9,11 @@ const inputShadowFocusedColor = 'rgba(0,123,255,.25)';
 const inputErrorColor = '#e21219';
 const inputBackgroundErrorColor = '#fdf3f3';
 
-export const InputWrapper = styled.div`
-  margin: 12px 0;
-  width: 500px;
-`;
-
-export const Label = styled.label`
-  display: block;
-  color: ${colors.label};
-  font-size: 15px;
-  font-weight: 200;
-  padding-bottom: 2px;
-`;
-
 export const InputElement = styled.input`
   background-color: ${(props) => props.error ? inputBackgroundErrorColor : colors.main_color};
   border: 1px solid ${(props) => props.error ? inputErrorColor : inputBorderColor};
   border-radius: 4px;
+  box-sizing: border-box;
   color: ${inputColor};
   line-height: 1.5;
   outline: 0;

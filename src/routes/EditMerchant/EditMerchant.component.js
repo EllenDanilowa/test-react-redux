@@ -16,7 +16,7 @@ class EditMerchant extends Component {
   render() {
     return (
       <div>
-        <MerchantForm initValue={this.props.merchant}
+        <MerchantForm merchant={this.props.merchant}
                       submit={this.updateMerchant}
                       title="Edit a merchant"
                       submitTitle="Update"/>

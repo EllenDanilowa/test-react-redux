@@ -1,57 +1,50 @@
 import React, {Component} from 'react';
 import PropTypes from 'prop-types';
 import {
-  InputWrapper,
-  Label,
   InputElement,
   ErrorMessage
 } from './Input.styled';
+import {FieldWrapper, Label} from '../Form.styled';
+
+const DEFAULT_ERROR_MESSAGE = 'Oops are you sure? – this doesn’t look right';
 
 class Input extends Component {
   render() {
     const {
       name,
-      onChange,
       placeholder,
       title,
       type,
-      required,
-      value,
-      error
+      error,
+      refFunc,
+      errorMessage
     } = this.props;
 
     return (
-      <InputWrapper>
+      <FieldWrapper>
         <Label htmlFor={name}>{title}</Label>
         <InputElement
           id={name}
           name={name}
           type={type || 'text'}
-          value={value}
-          onChange={onChange}
           placeholder={placeholder}
-          required={required}
+          ref={refFunc}
           error={Boolean(error)}
         />
-        {error && <ErrorMessage>{error}</ErrorMessage>}
-      </InputWrapper>
+        {error && <ErrorMessage>{errorMessage || DEFAULT_ERROR_MESSAGE}</ErrorMessage>}
+      </FieldWrapper>
     );
   }
 }
 
 Input.propTypes = {
   name: PropTypes.string.isRequired,
-  onChange: PropTypes.func.isRequired,
   placeholder: PropTypes.string,
   title: PropTypes.string.isRequired,
   type: PropTypes.string,
-  required: PropTypes.bool,
-  value: PropTypes.oneOfType([
-    PropTypes.string,
-    PropTypes.number,
-    PropTypes.bool
-  ]).isRequired,
-  error: PropTypes.string
+  refFunc: PropTypes.func.isRequired,
+  error: PropTypes.object,
+  errorMessage: PropTypes.string
 };
 
 export default Input;
