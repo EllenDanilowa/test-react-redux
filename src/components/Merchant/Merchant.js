@@ -1,4 +1,4 @@
-import React, {Component} from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 import {
   MerchantWrapper,
@@ -22,57 +22,45 @@ import premiumIcon from './assets/premium-user.svg';
 import editIcon from './assets/edit.svg';
 import deleteIcon from './assets/delete.svg';
 
-class Merchant extends Component {
-  constructor(props) {
-    super(props);
+const Merchant = ({item, ...props}) => {
+  const deleteMerchant = () => props.delete(item.id);
 
-    this.deleteMerchant = this.deleteMerchant.bind(this);
-  }
+  return (
+    <MerchantWrapper>
+      {item.hasPremium && <PremiumIcon src={premiumIcon} alt="Premium user" title="Premium user"/>}
+      <Avatar src={item.avatarUrl || defaultAvatar} alt="avatar"/>
+      <ContentWrapper>
+        <Name>{item.firstname} {item.lastname}</Name>
 
-  deleteMerchant() {
-    this.props.delete(this.props.item.id);
-  }
+        <ContentItem>
+          <Icon src={mailIcon}/>
+          <span>{item.email}</span>
+        </ContentItem>
+        <ContentItem>
+          <Icon src={phoneIcon}/>
+          <span>{item.phone}</span>
+        </ContentItem>
 
-  render() {
-    const {item} = this.props;
+        {Boolean(item.bids.length) && (
+          <Accordion title="See bids">
+            <div>{item.bids.map((bid) => (
+              <Bid key={bid.id} item={bid}/>
+            ))}</div>
+          </Accordion>
+        )}
 
-    return (
-      <MerchantWrapper>
-        {item.hasPremium && <PremiumIcon src={premiumIcon} alt="Premium user" title="Premium user"/>}
-        <Avatar src={item.avatarUrl || defaultAvatar} alt="avatar" />
-        <ContentWrapper>
-          <Name>{item.firstname} {item.lastname}</Name>
-
-          <ContentItem>
-            <Icon src={mailIcon}/>
-            <span>{item.email}</span>
-          </ContentItem>
-          <ContentItem>
-            <Icon src={phoneIcon}/>
-            <span>{item.phone}</span>
-          </ContentItem>
-
-          {Boolean(item.bids.length) && (
-            <Accordion title="See bids">
-              <div>{item.bids.map((bid) => (
-                <Bid key={bid.id} item={bid}/>
-              ))}</div>
-            </Accordion>
-          )}
-
-        </ContentWrapper>
-        <ActionsWrapper>
-          <ActionLink to={`/update/${item.id}`}>
-            <ActionIcon src={editIcon} />
-          </ActionLink>
-          <DeleteButton onClick={this.deleteMerchant}>
-            <ActionIcon src={deleteIcon} />
-          </DeleteButton>
-        </ActionsWrapper>
-      </MerchantWrapper>
-    );
-  }
-}
+      </ContentWrapper>
+      <ActionsWrapper>
+        <ActionLink to={`/update/${item.id}`}>
+          <ActionIcon src={editIcon}/>
+        </ActionLink>
+        <DeleteButton onClick={deleteMerchant}>
+          <ActionIcon src={deleteIcon}/>
+        </DeleteButton>
+      </ActionsWrapper>
+    </MerchantWrapper>
+  );
+};
 
 Merchant.propTypes = {
   item: PropTypes.shape({

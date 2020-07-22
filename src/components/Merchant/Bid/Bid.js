@@ -1,4 +1,4 @@
-import React, {Component} from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 import {
   BidWrapper,
@@ -7,36 +7,34 @@ import {
   BidContentItem
 } from './Bid.styled';
 
-class Bid extends Component {
-  render() {
-    const {
-      carTitle,
-      amount,
-      created
-    } = this.props.item;
-    const formattedDate = new Intl.DateTimeFormat('en-GB', {
-      year: 'numeric',
-      month: 'long',
-      day: '2-digit'
-    }).format(created);
+const Bid = ({item}) => {
+  const {
+    carTitle,
+    amount,
+    created
+  } = item;
+  const formattedDate = new Intl.DateTimeFormat('en-GB', {
+    year: 'numeric',
+    month: 'long',
+    day: '2-digit'
+  }).format(created);
 
-    return (
-      <BidWrapper>
-        <Title>{carTitle}</Title>
-        <BidContent>
-          <BidContentItem>
-            <b>Amount: </b>
-            {amount}
-          </BidContentItem>
-          <BidContentItem>
-            <b>Created: </b>
-            {formattedDate}
-          </BidContentItem>
-        </BidContent>
-      </BidWrapper>
-    );
-  }
-}
+  return (
+    <BidWrapper>
+      <Title>{carTitle}</Title>
+      <BidContent>
+        <BidContentItem>
+          <b>Amount: </b>
+          {amount}
+        </BidContentItem>
+        <BidContentItem>
+          <b>Created: </b>
+          {formattedDate}
+        </BidContentItem>
+      </BidContent>
+    </BidWrapper>
+  );
+};
 
 Bid.propTypes = {
   item: PropTypes.shape({
@@ -44,7 +42,7 @@ Bid.propTypes = {
     carTitle: PropTypes.string.isRequired,
     amount: PropTypes.number.string,
     created: PropTypes.string.isRequired
-  })
+  }).isRequired
 };
 
 export default Bid;

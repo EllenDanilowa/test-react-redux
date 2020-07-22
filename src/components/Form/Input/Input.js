@@ -1,4 +1,4 @@
-import React, {Component} from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 import {
   InputElement,
@@ -8,34 +8,32 @@ import {FieldWrapper, Label} from '../Form.styled';
 
 const DEFAULT_ERROR_MESSAGE = 'Oops are you sure? – this doesn’t look right';
 
-class Input extends Component {
-  render() {
-    const {
-      name,
-      placeholder,
-      title,
-      type,
-      error,
-      refFunc,
-      errorMessage
-    } = this.props;
+const Input = (props) => {
+  const {
+    name,
+    placeholder,
+    title,
+    type,
+    error,
+    refFunc,
+    errorMessage
+  } = props;
 
-    return (
-      <FieldWrapper>
-        <Label htmlFor={name}>{title}</Label>
-        <InputElement
-          id={name}
-          name={name}
-          type={type || 'text'}
-          placeholder={placeholder}
-          ref={refFunc}
-          error={Boolean(error)}
-        />
-        {error && <ErrorMessage>{errorMessage || DEFAULT_ERROR_MESSAGE}</ErrorMessage>}
-      </FieldWrapper>
-    );
-  }
-}
+  return (
+    <FieldWrapper>
+      <Label htmlFor={name}>{title}</Label>
+      <InputElement
+        id={name}
+        name={name}
+        type={type || 'text'}
+        placeholder={placeholder}
+        ref={refFunc}
+        error={Boolean(error)}
+      />
+      {error && <ErrorMessage>{errorMessage || DEFAULT_ERROR_MESSAGE}</ErrorMessage>}
+    </FieldWrapper>
+  );
+};
 
 Input.propTypes = {
   name: PropTypes.string.isRequired,

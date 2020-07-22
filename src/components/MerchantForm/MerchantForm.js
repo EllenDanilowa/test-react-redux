@@ -8,15 +8,13 @@ import Button from '../Form/Button/Button';
 import {Title} from './MerchantForm.styled';
 import {FIELDS} from './MerchantForm.constants';
 
-const MerchantForm = ({merchant = {}, title, submit, submitTitle }) => {
+const MerchantForm = ({merchant = {}, title, submit, submitTitle}) => {
   const defaultValues = {};
   Object.values(FIELDS)
     .forEach((field) => (
       defaultValues[field.name] = merchant[field.name] || field.defaultValue
     ));
-  const {register, handleSubmit, errors, watch} = useForm({
-    defaultValues
-  });
+  const {register, handleSubmit, errors, watch} = useForm({defaultValues});
   const watchHasPremium = watch(FIELDS.HAS_PREMIUM.name);
   const onSubmit = (data) => {
     submit(data);
@@ -50,9 +48,9 @@ const MerchantForm = ({merchant = {}, title, submit, submitTitle }) => {
                error={errors[FIELDS.PHONE.name]}
                errorMessage={FIELDS.PHONE.errorMessage}/>
         <Checkbox name={FIELDS.HAS_PREMIUM.name}
-               title={FIELDS.HAS_PREMIUM.label}
-               checked={watchHasPremium}
-               refFunc={register}/>
+                  title={FIELDS.HAS_PREMIUM.label}
+                  checked={watchHasPremium}
+                  refFunc={register}/>
 
         {/*<div>*/}
         {/*  <label htmlFor="avatar">Avatar</label>*/}
