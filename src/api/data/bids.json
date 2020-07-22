@@ -16,5 +16,29 @@
     "carTitle": "title 3",
     "amount": 3500,
     "created": "1595203200000"
+  },
+  {
+    "id": "3",
+    "carTitle": "title 4",
+    "amount": 8500,
+    "created": "1595203201000"
+  },
+  {
+    "id": "4",
+    "carTitle": "title 5",
+    "amount": 5000,
+    "created": "1595203800000"
+  },
+  {
+    "id": "5",
+    "carTitle": "title 6",
+    "amount": 8000,
+    "created": "1595205200000"
+  },
+  {
+    "id": "6",
+    "carTitle": "title 7",
+    "amount": 9500,
+    "created": "1595202200000"
   }
 ]

@@ -1,4 +1,4 @@
-import React, {Component} from 'react';
+import React from 'react';
 import {Provider} from 'react-redux';
 import configureStore, {history} from './redux/configureStore';
 import {ConnectedRouter} from 'connected-react-router';
@@ -18,27 +18,23 @@ import logo from './logo.png';
 
 const store = configureStore();
 
-class App extends Component {
-  render() {
-    return (
-      <Provider store={store}>
-        <ConnectedRouter history={history}>
-          <Header>
-            <Link to="/">
-              <Logo src={logo} alt="logo"/>
-            </Link>
-          </Header>
-          <main>
-            <Switch>
-              <Route path="/create" component={NewMerchantPage}/>
-              <Route path="/update/:id" component={EditMerchantPage}/>
-              <Route path="/" component={AllMerchantsPage}/>
-            </Switch>
-          </main>
-        </ConnectedRouter>
-      </Provider>
-    );
-  }
-}
+const App = () => (
+  <Provider store={store}>
+    <ConnectedRouter history={history}>
+      <Header>
+        <Link to="/">
+          <Logo src={logo} alt="logo"/>
+        </Link>
+      </Header>
+      <main>
+        <Switch>
+          <Route path="/create" component={NewMerchantPage}/>
+          <Route path="/update/:id" component={EditMerchantPage}/>
+          <Route path="/" component={AllMerchantsPage}/>
+        </Switch>
+      </main>
+    </ConnectedRouter>
+  </Provider>
+);
 
 export default App;

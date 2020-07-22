@@ -9,10 +9,9 @@ const TIMEOUT = 1000;
 const getRandomInt = (max) => {
   return Math.floor(Math.random() * Math.floor(max));
 };
-
 const getRandomId = () => Math.random().toString(36).substr(2, 9);
 
-const getAll = () => {
+const _getAll = () => {
   return new Promise((resolve) => {
     const data = _merchants.map((item) => {
       item.id = getRandomId();
@@ -21,21 +20,23 @@ const getAll = () => {
       return item;
     });
 
-    setTimeout(() => {
-      resolve({data});
-    }, TIMEOUT);
+    setTimeout(() => resolve({data}), TIMEOUT);
   });
 };
 
-const create = (merchant) => {
-  merchant.id = getRandomId();
-
+const _create = (merchant) => {
   return new Promise((resolve) => {
-    setTimeout(() => resolve({data: merchant}), TIMEOUT);
+    const newMerchant = {
+      ...merchant,
+      id: getRandomId(),
+      bids: _bids.slice(0, getRandomInt(_bids.length))
+    };
+
+    setTimeout(() => resolve({data: newMerchant}), TIMEOUT);
   });
 };
 
-const update = (merchant) => {
+const _update = (merchant) => {
   return new Promise((resolve) => {
     setTimeout(() => resolve({data: merchant}), TIMEOUT);
   });
@@ -48,8 +49,8 @@ const _delete = (id) => {
 };
 
 export default {
-  getAll,
-  create,
-  update,
+  getAll: _getAll,
+  create: _create,
+  update: _update,
   delete: _delete
 };

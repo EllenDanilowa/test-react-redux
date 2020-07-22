@@ -46,9 +46,6 @@ export default (state, action) => {
     case CREATE_NEW_MERCHANT_SUCCESS: {
       const newItem = action.payload.merchant;
 
-      newItem.id = `${state.items.length}`; // random
-      newItem.bids = []; // change to random
-
       return {
         ...state,
         items: (state.items || []).concat([newItem])

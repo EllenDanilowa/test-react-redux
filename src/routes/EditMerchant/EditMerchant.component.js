@@ -1,29 +1,19 @@
-import React, {Component} from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 import MerchantForm from '../../components/MerchantForm/MerchantForm';
 
-class EditMerchant extends Component {
-  constructor(props) {
-    super(props);
+const EditMerchant = ({merchant, updateMerchant}) => {
+  const update = (item) => updateMerchant(item);
 
-    this.updateMerchant = this.updateMerchant.bind(this);
-  }
-
-  updateMerchant(merchant) {
-    this.props.updateMerchant(merchant);
-  }
-
-  render() {
-    return (
-      <div>
-        <MerchantForm merchant={this.props.merchant}
-                      submit={this.updateMerchant}
-                      title="Edit a merchant"
-                      submitTitle="Update"/>
-      </div>
-    );
-  }
-}
+  return (
+    <div>
+      <MerchantForm merchant={merchant}
+                    submit={update}
+                    title="Edit a merchant"
+                    submitTitle="Update"/>
+    </div>
+  );
+};
 
 EditMerchant.propTypes = {
   updateMerchant: PropTypes.func.isRequired,
