@@ -6,19 +6,18 @@ class EditMerchant extends Component {
   constructor(props) {
     super(props);
 
-    //const id = this.props.match.params.id;
-    this.item = {};
     this.editMerchant = this.editMerchant.bind(this);
   }
 
   editMerchant(merchant) {
     this.props.editMerchant(merchant);
+
   }
 
   render() {
     return (
       <div>
-        <MerchantForm initValue={this.item}
+        <MerchantForm initValue={this.props.merchant}
                       submit={this.editMerchant}
                       title="Edit a merchant"
                       submitTitle="Update"/>
@@ -28,7 +27,8 @@ class EditMerchant extends Component {
 }
 
 EditMerchant.propTypes = {
-  editMerchant: PropTypes.func.isRequired
+  editMerchant: PropTypes.func.isRequired,
+  merchant: PropTypes.object,
 };
 
 export default EditMerchant;

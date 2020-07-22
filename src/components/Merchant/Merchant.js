@@ -1,5 +1,4 @@
 import React, {Component} from 'react';
-import {Link} from 'react-router-dom';
 import PropTypes from 'prop-types';
 import {
   MerchantWrapper,
@@ -7,7 +6,8 @@ import {
   Name,
   ContentWrapper,
   Icon,
-  LargeIcon,
+  ActionIcon,
+  ActionLink,
   PremiumIcon,
   ActionsWrapper,
   ContentItem,
@@ -62,11 +62,11 @@ class Merchant extends Component {
 
         </ContentWrapper>
         <ActionsWrapper>
-          <Link to={`/edit/${item.id}`}>
-            <LargeIcon src={editIcon} />
-          </Link>
+          <ActionLink to={`/edit/${item.id}`}>
+            <ActionIcon src={editIcon} />
+          </ActionLink>
           <DeleteButton onClick={this.deleteMerchant}>
-            <LargeIcon src={deleteIcon} />
+            <ActionIcon src={deleteIcon} />
           </DeleteButton>
         </ActionsWrapper>
       </MerchantWrapper>

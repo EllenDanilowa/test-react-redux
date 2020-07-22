@@ -18,6 +18,19 @@ export const fetchMerchants = () => {
   };
 };
 
+export const addMerchant = (item) => {
+  return (dispatch) => {
+    //dispatch(addMerchantsBegin());
+
+    return API.addMerchant(item)
+      .then((json) => {
+        dispatch(addNewMerchant((json.data)));
+        //dispatch(push(''));
+      });
+      //.catch((error) => dispatch(addMerchantFailure(error)));
+  };
+};
+
 export const fetchMerchantsBegin = () => ({
   type: FETCH_MERCHANTS_BEGIN
 });

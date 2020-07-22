@@ -13,7 +13,7 @@ const initialState = {
   error: false
 };
 
-export default (state = {}, action) => {
+export default (state, action) => {
   if (typeof state === 'undefined') {
     return initialState;
   }
@@ -56,7 +56,8 @@ export default (state = {}, action) => {
     }
     case EDIT_MERCHANT: {
       const updatedItem = action.payload.merchant;
-
+      console.log(updatedItem);
+      console.log(state.items.map((item) => item.id === updatedItem.id ? updatedItem : item));
       return {
         ...state,
         items: state.items.map((item) => item.id === updatedItem.id ? updatedItem : item)

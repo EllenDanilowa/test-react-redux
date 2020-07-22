@@ -1,5 +1,6 @@
 import styled, {keyframes} from 'styled-components';
 import colors from './styles/colors';
+import {Link} from 'react-router-dom';
 
 const logo_appearance = keyframes`
   from {
@@ -24,7 +25,7 @@ const logo_appearance = keyframes`
 
 export const Logo = styled.img`
   animation: ${logo_appearance} 1.6s ease-in;
-  height: 80px;
+  height: 35px;
   background: ${colors.main_color};
   padding: 15px 0;
   border-radius: 3px;
@@ -33,7 +34,12 @@ export const Logo = styled.img`
 export const Header = styled.header`
   background-color: ${colors.main_background};
   color: ${colors.main_color};
-  height: 150px;
+  display: flex;
+  justify-content: center;
+  height: 65px;
   padding: 20px;
-  text-align: center;
+`;
+
+export const LogoLink = styled(Link)`
+  display: block;
 `;

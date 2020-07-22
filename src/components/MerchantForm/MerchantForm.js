@@ -10,11 +10,14 @@ import {
 } from './MerchantForm.constants';
 
 const createInitialState = (initObj = {}) => {
-  const state = {errors: {}};
+  const state = {
+    ...initObj,
+    errors: {}
+  };
   Object.values(FIELDS).forEach((field) => {
     const {name, defaultValue} = field;
 
-    state[name] = initObj[name] || defaultValue;
+    state[name] = state[name] || defaultValue;
     state.errors[name] = '';
   });
 

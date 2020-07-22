@@ -3,18 +3,18 @@
     "id": "0",
     "carTitle": "title 1",
     "amount": 1500,
-    "created": "date 1"
+    "created": "1595030400000"
   },
   {
     "id": "1",
     "carTitle": "title 2",
     "amount": 2500,
-    "created": "date 2"
+    "created": "1595116800000"
   },
   {
     "id": "2",
     "carTitle": "title 3",
     "amount": 3500,
-    "created": "date 3"
+    "created": "1595203200000"
   }
 ]

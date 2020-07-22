@@ -1,16 +1,39 @@
 import React, {Component} from 'react';
 import PropTypes from 'prop-types';
+import {
+  BidWrapper,
+  Title,
+  BidContent,
+  BidContentItem
+} from './Bid.styled';
 
 class Bid extends Component {
   render() {
-    const {item} = this.props;
+    const {
+      carTitle,
+      amount,
+      created
+    } = this.props.item;
+    const formattedDate = new Intl.DateTimeFormat('en-GB', {
+      year: 'numeric',
+      month: 'long',
+      day: '2-digit'
+    }).format(created);
 
     return (
-      <ul>
-        <li>{item.carTitle}</li>
-        <li>{item.amount}</li>
-        <li>{item.created}</li>
-      </ul>
+      <BidWrapper>
+        <Title>{carTitle}</Title>
+        <BidContent>
+          <BidContentItem>
+            <b>Amount: </b>
+            {amount}
+          </BidContentItem>
+          <BidContentItem>
+            <b>Created: </b>
+            {formattedDate}
+          </BidContentItem>
+        </BidContent>
+      </BidWrapper>
     );
   }
 }

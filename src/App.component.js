@@ -35,15 +35,9 @@ class App extends Component {
           </Header>
           <main>
             <Switch>
-              <Route path="/add">
-                <NewMerchantPage/>
-              </Route>
-              <Route path="/edit/:id">
-                <EditMerchantPage/>
-              </Route>
-              <Route path="/">
-                <AllMerchantsPage/>
-              </Route>
+              <Route path="/add" component={NewMerchantPage}/>
+              <Route path="/edit/:id" component={EditMerchantPage}/>
+              <Route path="/" component={AllMerchantsPage}/>
             </Switch>
           </main>
         </div>
