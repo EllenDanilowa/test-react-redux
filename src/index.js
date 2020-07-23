@@ -1,13 +1,14 @@
-import React from 'react';
+import React, {Fragment} from 'react';
 import ReactDOM from 'react-dom';
 import App from './App';
+import {GlobalStyle} from './index.styled';
 import registerServiceWorker from './registerServiceWorker';
 
-import 'normalize.css';
-import './index.css';
-
 ReactDOM.render(
-    <App />,
+    <Fragment>
+      <GlobalStyle/>
+      <App />
+    </Fragment>,
   document.getElementById('root')
 );
 

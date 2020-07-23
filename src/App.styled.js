@@ -1,6 +1,5 @@
 import styled, {keyframes} from 'styled-components';
 import colors from './styles/colors';
-import {Link} from 'react-router-dom';
 
 const logo_appearance = keyframes`
   from {
@@ -38,8 +37,4 @@ export const Header = styled.header`
   justify-content: center;
   height: 65px;
   padding: 20px;
-`;
-
-export const LogoLink = styled(Link)`
-  display: block;
 `;
