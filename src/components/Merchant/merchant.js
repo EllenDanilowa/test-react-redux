@@ -12,9 +12,9 @@ import {
   ActionsWrapper,
   ContentItem,
   DeleteButton
-} from './Merchant.styled';
-import Bid from './Bid/Bid';
-import Accordion from './Accordion/Accordion';
+} from './merchant.styled';
+import Bid from './bid/bid';
+import Accordion from './accordion/accordion';
 import defaultAvatar from './assets/default-avatar.png';
 import mailIcon from './assets/mail.svg';
 import phoneIcon from './assets/phone.svg';

@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import MerchantForm from '../../components/MerchantForm/MerchantForm';
-import {PageWrapper, Title} from '../Route.styled';
+import MerchantForm from '../../components/merchant-form/merchant-form';
+import {PageWrapper, Title} from '../route.styled';
 
 const NewMerchant = ({createMerchant}) => {
   const create = (merchant) => createMerchant(merchant);

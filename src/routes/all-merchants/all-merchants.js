@@ -1,5 +1,5 @@
 import {connect} from 'react-redux';
-import AllMerchants from './AllMerchants.component';
+import AllMerchants from './all-merchants.component';
 import {deleteMerchant, fetchMerchants} from '../../redux/merchant/merchant.actions';
 
 const mapStateToProps = (state) => ({

@@ -2,13 +2,13 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import {useForm} from 'react-hook-form';
 import {Link} from 'react-router-dom';
-import Input from '../Form/Input/Input';
-import FileInput from '../Form/FileInput/FileInput';
-import Checkbox from '../Form/Checkbox/Checkbox';
-import Button from '../Form/Button/Button';
-import AvatarPreview from './AvatarPreview/AvatarPreview';
-import {FIELDS} from './MerchantForm.constants';
-import {getDefaultMerchant} from './MerchantForm.utils';
+import Input from '../form/input/input';
+import FileInput from '../form/file-input/file-input';
+import Checkbox from '../form/checkbox/checkbox';
+import Button from '../form/button/button';
+import AvatarPreview from './avatar-preview/avatar-preview';
+import {FIELDS} from './merchant-form.constants';
+import {getDefaultMerchant} from './merchant-form.utils';
 
 const MerchantForm = ({merchant, submit, submitTitle}) => {
   const {register, handleSubmit, errors, watch} = useForm({defaultValues: merchant});

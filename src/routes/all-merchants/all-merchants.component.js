@@ -1,9 +1,9 @@
 import React, {useEffect} from 'react';
 import PropTypes from 'prop-types';
 import {Link} from 'react-router-dom';
-import Merchant from '../../components/Merchant/Merchant';
-import {Title, PageWrapper} from '../Route.styled';
-import {Header, Icon} from './AllMerchants.styled';
+import Merchant from '../../components/merchant/merchant';
+import {Title, PageWrapper} from '../route.styled';
+import {Header, Icon} from './all-merchants.styled';
 import PlusIcon from './assets/plus.svg';
 
 const AllMerchants = ({loading, error, merchants, deleteMerchant, fetchMerchants}) => {

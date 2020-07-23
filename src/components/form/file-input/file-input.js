@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import {FieldWrapper, HiddenInput} from '../Form.styled';
-import { Icon, Label } from './FileInput.styled';
+import {FieldWrapper, HiddenInput} from '../form.styled';
+import { Icon, Label } from './file-input.styled';
 import uploadIcon from './assets/upload.svg';
 
 const FileInput = ({name, title, refFunc, accept}) => {

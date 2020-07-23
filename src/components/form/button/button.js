@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { ButtonComponent } from './Button.styled';
+import { ButtonComponent } from './button.styled';
 
 const Button = ({onClick, title, type}) => (
   <ButtonComponent

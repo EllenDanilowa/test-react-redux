@@ -5,12 +5,12 @@ import {
   StyledCheckbox,
   Icon,
   Title
-} from './Checkbox.styled';
+} from './checkbox.styled';
 import {
   FieldWrapper,
   Label,
   HiddenInput
-} from '../Form.styled';
+} from '../form.styled';
 
 const Checkbox = ({refFunc, title, name, checked}) => (
   <FieldWrapper>

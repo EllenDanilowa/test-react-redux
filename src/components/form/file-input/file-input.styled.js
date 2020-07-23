@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 import colors from '../../../styles/colors';
-import {Label as FormLabel} from '../Form.styled';
+import {Label as FormLabel} from '../form.styled';
 
 export const Label = styled(FormLabel)`
   cursor: pointer;

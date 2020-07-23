@@ -3,8 +3,8 @@ import PropTypes from 'prop-types';
 import {
   InputElement,
   ErrorMessage
-} from './Input.styled';
-import {FieldWrapper, Label} from '../Form.styled';
+} from './input.styled';
+import {FieldWrapper, Label} from '../form.styled';
 
 const DEFAULT_ERROR_MESSAGE = 'Oops are you sure? – this doesn’t look right';
 

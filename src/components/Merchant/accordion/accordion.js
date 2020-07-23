@@ -4,7 +4,7 @@ import {
   Label,
   ArrowDown,
   ArrowUp
-} from './Accordion.styled';
+} from './accordion.styled';
 
 const Accordion = (props) => {
   const [opened, setOpened] = useState(false);

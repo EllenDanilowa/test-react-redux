@@ -5,7 +5,7 @@ import {
   Title,
   BidContent,
   BidContentItem
-} from './Bid.styled';
+} from './bid.styled';
 
 const Bid = ({item}) => {
   const {

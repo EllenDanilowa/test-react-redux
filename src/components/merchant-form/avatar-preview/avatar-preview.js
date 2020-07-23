@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import {
   PreviewWrapper,
   Image
-} from './AvatarPreview.styled';
+} from './avatar-preview.styled';
 
 const AvatarPreview = ({files, alt, defaultImageUrl}) => {
   const reader = new FileReader();

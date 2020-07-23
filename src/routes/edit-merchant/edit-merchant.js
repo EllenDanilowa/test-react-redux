@@ -1,5 +1,5 @@
 import {connect} from 'react-redux';
-import EditMerchant from './EditMerchant.component';
+import EditMerchant from './edit-merchant.component';
 import {updateMerchant} from '../../redux/merchant/merchant.actions';
 import {getMerchantById} from '../../redux/merchant/merchant.selectors';
 
