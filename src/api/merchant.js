@@ -13,12 +13,14 @@ const TIMEOUT = 1000;
 
 const _getAll = () => {
   return new Promise((resolve) => {
-    const data = _merchants.map((item) => {
-      item.id = getRandomId();
+    const data = {};
+
+    data.items = _merchants.map((item) => {
       item.bids = _bids.slice(0, getRandomInt(_bids.length));
 
       return item;
     });
+    data.count = _merchants.length;
 
     setTimeout(() => resolve({data}), TIMEOUT);
   });

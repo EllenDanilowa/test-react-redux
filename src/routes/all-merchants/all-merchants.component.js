@@ -1,16 +1,17 @@
 import React, {useEffect} from 'react';
 import PropTypes from 'prop-types';
 import {Link} from 'react-router-dom';
-import Merchant from '../../components/merchant/merchant';
+import MerchantList from '../../components/merchant-list/merchant-list';
 import {Title, PageWrapper} from '../route.styled';
 import {Header, Icon} from './all-merchants.styled';
 import PlusIcon from './assets/plus.svg';
 
-const AllMerchants = ({loading, error, merchants, deleteMerchant, fetchMerchants}) => {
+const AllMerchants = ({loading, error, merchants, count, deleteMerchant, fetchMerchants, updateVisibleMerchants}) => {
   useEffect(() => {
-    if (merchants.length) return; //Temp: remove, coz we always should get refreshed data from server
+    if (count) return; //Temp: remove, coz we always should get refreshed data from server
 
     fetchMerchants();
+
   }, []);
 
   return (
@@ -25,12 +26,11 @@ const AllMerchants = ({loading, error, merchants, deleteMerchant, fetchMerchants
         </div>
       </Header>
       <div>
-        {!(error || loading) && merchants && merchants.map((merchant) =>
-          <Merchant
-            key={merchant.id}
-            item={merchant}
-            delete={deleteMerchant}
-          />
+        {!(error || loading) && Boolean(count) && (
+          <MerchantList count={count}
+                        merchants={merchants}
+                        deleteMerchant={deleteMerchant}
+                        updateVisibleMerchants={updateVisibleMerchants}/>
         )}
         {loading && <p>Loading...</p>}
         {error && <p>Sorry, we could not load data</p>}
@@ -43,8 +43,10 @@ AllMerchants.propTypes = {
   loading: PropTypes.bool,
   error: PropTypes.bool,
   merchants: PropTypes.array,
+  count: PropTypes.number.isRequired,
   deleteMerchant: PropTypes.func.isRequired,
-  fetchMerchants: PropTypes.func.isRequired
+  fetchMerchants: PropTypes.func.isRequired,
+  updateVisibleMerchants: PropTypes.func.isRequired
 };
 
 export default AllMerchants;

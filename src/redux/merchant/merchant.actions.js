@@ -4,6 +4,7 @@ import {
   FETCH_MERCHANTS_BEGIN,
   FETCH_MERCHANTS_SUCCESS,
   FETCH_MERCHANTS_FAILURE,
+  UPDATE_VISIBLE_MERCHANTS,
   CREATE_NEW_MERCHANT_SUCCESS,
   UPDATE_MERCHANT_SUCCESS,
   DELETE_MERCHANT_SUCCESS,
@@ -62,14 +63,22 @@ export const fetchMerchantsBegin = () => ({
   type: FETCH_MERCHANTS_BEGIN
 });
 
-export const fetchMerchantsSuccess = (merchants) => ({
+export const fetchMerchantsSuccess = (data) => ({
   type: FETCH_MERCHANTS_SUCCESS,
-  payload: {merchants}
+  payload: {
+    merchants: data.items,
+    count: data.count
+  }
 });
 
 export const fetchMerchantsFailure = (error) => ({
   type: FETCH_MERCHANTS_FAILURE,
   payload: {error}
+});
+
+export const updateVisibleMerchants = (from, to) => ({
+  type: UPDATE_VISIBLE_MERCHANTS,
+  payload: {from, to}
 });
 
 export const createNewMerchantSuccess = (merchant) => ({

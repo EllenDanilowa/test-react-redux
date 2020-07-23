@@ -34,5 +34,32 @@
     "email": "test4@test.com",
     "phone": "00000000",
     "hasPremium": false
+  },
+  {
+    "id": "4",
+    "firstname": "name 5",
+    "lastname": "lastname 5",
+    "avatarUrl": "",
+    "email": "test5@test.com",
+    "phone": "00000000",
+    "hasPremium": false
+  },
+  {
+    "id": "5",
+    "firstname": "name 6",
+    "lastname": "lastname 6",
+    "avatarUrl": "",
+    "email": "test6@test.com",
+    "phone": "00000000",
+    "hasPremium": false
+  },
+  {
+    "id": "6",
+    "firstname": "name 7",
+    "lastname": "lastname 7",
+    "avatarUrl": "",
+    "email": "test7@test.com",
+    "phone": "00000000",
+    "hasPremium": false
   }
 ]
