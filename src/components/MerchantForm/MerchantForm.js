@@ -14,7 +14,12 @@ const MerchantForm = ({merchant, submit, submitTitle}) => {
   const {register, handleSubmit, errors, watch} = useForm({defaultValues: merchant});
   const watchFields = watch([FIELDS.HAS_PREMIUM.name, FIELDS.AVATAR.name]);
 
-  const onSubmit = (data) => {
+  const onSubmit = (formData) => {
+    const data = {
+      ...merchant,
+      ...formData
+    };
+
     submit(data);
   };
 

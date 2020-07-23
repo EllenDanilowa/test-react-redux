@@ -3,7 +3,11 @@
  */
 import _merchants from './data/merchants.json';
 import _bids from './data/bids.json';
-import {getRandomId, getRandomInt} from './merchant.utils';
+import {
+  getRandomId,
+  getRandomInt,
+  convertImage
+} from './merchant.utils';
 
 const TIMEOUT = 1000;
 
@@ -20,21 +24,29 @@ const _getAll = () => {
   });
 };
 
-const _create = (merchant) => {
+const _update = (merchant) => {
   return new Promise((resolve) => {
     const newMerchant = {
       ...merchant,
-      id: getRandomId(),
-      bids: _bids.slice(0, getRandomInt(_bids.length))
+      id: merchant.id || getRandomId(),
+      bids: merchant.id ? merchant.bids : _bids.slice(0, getRandomInt(_bids.length)),
+      avatar: null
     };
+    const resolvePromise = () => setTimeout(() => resolve({data: newMerchant}), TIMEOUT);
 
-    setTimeout(() => resolve({data: newMerchant}), TIMEOUT);
-  });
-};
+    if (merchant.avatar && merchant.avatar.length) {
+      convertImage(merchant.avatar[0]).then((image) => {
+        newMerchant.avatarUrl = image;
 
-const _update = (merchant) => {
-  return new Promise((resolve) => {
-    setTimeout(() => resolve({data: merchant}), TIMEOUT);
+        resolvePromise();
+      }).catch((error) => {
+        console.log(error);
+
+        resolvePromise();
+      });
+    } else {
+      resolvePromise();
+    }
   });
 };
 
@@ -46,7 +58,7 @@ const _delete = (id) => {
 
 export default {
   getAll: _getAll,
-  create: _create,
+  create: _update,
   update: _update,
   delete: _delete
 };
