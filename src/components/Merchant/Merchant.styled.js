@@ -19,9 +19,8 @@ export const MerchantWrapper = styled.div`
 const avatarSize = '130px';
 export const Avatar = styled.img`
   align-self: flex-start;
-  border-radius: 50%;
   flex: 0 0 ${avatarSize};
-  height: ${avatarSize};
+  height: auto;
   width: ${avatarSize};
 `;
 

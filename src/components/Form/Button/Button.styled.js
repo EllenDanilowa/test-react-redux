@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 import colors from './../../../styles/colors';
 
-export const ButtonComponent = styled.button`
+export const ButtonComponent = styled.input`
   background: ${colors.primary_button};
   color: ${colors.main_color};
   border: none;

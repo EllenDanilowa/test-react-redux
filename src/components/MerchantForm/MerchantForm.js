@@ -3,28 +3,23 @@ import PropTypes from 'prop-types';
 import {useForm} from 'react-hook-form';
 import {Link} from 'react-router-dom';
 import Input from '../Form/Input/Input';
+import FileInput from '../Form/FileInput/FileInput';
 import Checkbox from '../Form/Checkbox/Checkbox';
 import Button from '../Form/Button/Button';
-import {Title} from './MerchantForm.styled';
+import AvatarPreview from './AvatarPreview/AvatarPreview';
 import {FIELDS} from './MerchantForm.constants';
+import {getDefaultMerchant} from './MerchantForm.utils';
 
-const MerchantForm = ({merchant = {}, title, submit, submitTitle}) => {
-  const defaultValues = {};
-  Object.values(FIELDS)
-    .forEach((field) => (
-      defaultValues[field.name] = merchant[field.name] || field.defaultValue
-    ));
-  const {register, handleSubmit, errors, watch} = useForm({defaultValues});
-  const watchHasPremium = watch(FIELDS.HAS_PREMIUM.name);
+const MerchantForm = ({merchant, submit, submitTitle}) => {
+  const {register, handleSubmit, errors, watch} = useForm({defaultValues: merchant});
+  const watchFields = watch([FIELDS.HAS_PREMIUM.name, FIELDS.AVATAR.name]);
+
   const onSubmit = (data) => {
     submit(data);
   };
 
   return (
     <div>
-      {title && (
-        <Title>{title}</Title>
-      )}
       <form onSubmit={handleSubmit(onSubmit)}>
         <Input name={FIELDS.FIRST_NAME.name}
                title={FIELDS.FIRST_NAME.label}
@@ -49,16 +44,14 @@ const MerchantForm = ({merchant = {}, title, submit, submitTitle}) => {
                errorMessage={FIELDS.PHONE.errorMessage}/>
         <Checkbox name={FIELDS.HAS_PREMIUM.name}
                   title={FIELDS.HAS_PREMIUM.label}
-                  checked={watchHasPremium}
+                  checked={watchFields[FIELDS.HAS_PREMIUM.name]}
                   refFunc={register}/>
-
-        {/*<div>*/}
-        {/*  <label htmlFor="avatar">Avatar</label>*/}
-        {/*  <input type="file" name="avatar" id="avatar" accept="image/*" ref={this.avatarRef}*/}
-        {/*         onChange={this.onAvatarChange}/>*/}
-        {/*</div>*/}
-
-        <Button title={submitTitle}/>
+        <FileInput name={FIELDS.AVATAR.name}
+                   title={FIELDS.AVATAR.label}
+                   refFunc={register}
+                   accept="image/*"/>
+        <AvatarPreview files={watchFields[FIELDS.AVATAR.name]} defaultImageUrl={merchant.avatarUrl} alt="Avatar preview"/>
+        <Button title={submitTitle} type="submit"/>
       </form>
       <Link to="/">Cancel</Link>
     </div>
@@ -77,8 +70,11 @@ MerchantForm.propTypes = {
     bids: PropTypes.array
   }),
   submit: PropTypes.func.isRequired,
-  submitTitle: PropTypes.string.isRequired,
-  title: PropTypes.string
+  submitTitle: PropTypes.string.isRequired
+};
+
+MerchantForm.defaultProps = {
+  merchant: getDefaultMerchant(FIELDS)
 };
 
 export default MerchantForm;

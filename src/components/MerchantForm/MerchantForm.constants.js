@@ -36,6 +36,6 @@ export const FIELDS = {
   },
   AVATAR: {
     name: 'avatar',
-    label: 'Avatar'
+    label: 'Upload a new avatar'
   }
 };

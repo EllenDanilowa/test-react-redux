@@ -25,7 +25,7 @@ const Input = (props) => {
       <InputElement
         id={name}
         name={name}
-        type={type || 'text'}
+        type={type}
         placeholder={placeholder}
         ref={refFunc}
         error={Boolean(error)}
@@ -39,10 +39,14 @@ Input.propTypes = {
   name: PropTypes.string.isRequired,
   placeholder: PropTypes.string,
   title: PropTypes.string.isRequired,
-  type: PropTypes.string,
+  type: PropTypes.string.isRequired,
   refFunc: PropTypes.func.isRequired,
   error: PropTypes.object,
   errorMessage: PropTypes.string
+};
+
+Input.defaultProps = {
+  type: 'text'
 };
 
 export default Input;
