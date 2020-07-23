@@ -1,6 +1,3 @@
-/**
- * Mocking client-server processing
- */
 import _merchants from './data/merchants.json';
 import _bids from './data/bids.json';
 import {
@@ -9,8 +6,11 @@ import {
   convertImage
 } from './merchant.utils';
 
-const TIMEOUT = 1000;
+const TIMEOUT = 250;
 
+/**
+ * Mocking client-server processing
+ */
 const _getAll = () => {
   return new Promise((resolve) => {
     const data = {};
