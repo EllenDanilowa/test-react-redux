@@ -22,6 +22,7 @@
     "semi": 2,
     "semi-spacing": 2,
     "space-before-function-paren": 0,
-    "quotes": ["error", "single"]
+    "quotes": ["error", "single"],
+    "no-multiple-empty-lines": 2
   }
 }

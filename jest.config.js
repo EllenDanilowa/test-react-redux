@@ -6,8 +6,7 @@ module.exports = {
     '<rootDir>/src/registerServiceWorker.js',
     '<rootDir>/src/index.js',
     '<rootDir>/src/index.styled.js',
-    '<rootDir>/src/redux/configureStore.js',
-    '<rootDir>/src/redux/reducers.js',
+    '<rootDir>/src/redux/*.js'
   ],
   setupFiles: [
     '<rootDir>/config/jest/enzyme-adapter.js',
