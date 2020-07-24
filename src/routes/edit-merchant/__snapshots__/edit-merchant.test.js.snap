@@ -1,0 +1,14 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`EditMerchant renders component correctly 1`] = `
+<div
+  className="sc-AxirZ cSToxy"
+>
+  <h3
+    className="sc-AxjAm hnoMwN"
+  >
+    Edit a merchant
+  </h3>
+  Merchant Form component
+</div>
+`;

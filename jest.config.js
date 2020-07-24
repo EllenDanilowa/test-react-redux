@@ -2,8 +2,16 @@ module.exports = {
   collectCoverageFrom: [
     'src/**/*.{js,jsx}'
   ],
+  coveragePathIgnorePatterns: [
+    '<rootDir>/src/registerServiceWorker.js',
+    '<rootDir>/src/index.js',
+    '<rootDir>/src/index.styled.js',
+    '<rootDir>/src/redux/configureStore.js',
+    '<rootDir>/src/redux/reducers.js',
+  ],
   setupFiles: [
     '<rootDir>/config/jest/enzyme-adapter.js',
+    '<rootDir>/config/jest/polyfills.js',
     '<rootDir>/config/polyfills.js'
   ],
   testMatch: [

@@ -1,8 +1,6 @@
 import {createGlobalStyle} from 'styled-components';
 import colors from './styles/colors';
 
-import './styles/fonts.css';
-
 export const GlobalStyle = createGlobalStyle`
   body {
     margin: 0;

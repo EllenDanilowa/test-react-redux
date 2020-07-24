@@ -1,0 +1,223 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Merchant renders merchant with bids 1`] = `
+<div
+  className="sc-AxjAm htNEyp"
+>
+  <img
+    alt="avatar"
+    className="sc-AxirZ fmnQqz"
+    src="default-avatar.png"
+  />
+  <div
+    className="sc-AxhUy lifGgf"
+  >
+    <h4
+      className="sc-AxiKw erQByv"
+    >
+      name
+       
+      lastname
+    </h4>
+    <div
+      className="sc-AxgMl bQvVVa"
+    >
+      <img
+        className="sc-AxhCb gnNDWi"
+        src="mail.svg"
+      />
+      <span>
+        test@test.com
+      </span>
+    </div>
+    <div
+      className="sc-AxgMl bQvVVa"
+    >
+      <img
+        className="sc-AxhCb gnNDWi"
+        src="phone.svg"
+      />
+      <span>
+        123456789
+      </span>
+    </div>
+    <div>
+      <p>
+        Accordion
+      </p>
+      <div>
+        '
+        <div>
+          Bid component
+        </div>
+        '
+      </div>
+    </div>
+  </div>
+  <div
+    className="sc-Axmtr bbWZXo"
+  >
+    <a
+      className="sc-fzozJi jEPYlu"
+      href="/update/1"
+      onClick={[Function]}
+    >
+      <img
+        className="sc-AxmLO kRZbDE"
+        src="edit.svg"
+      />
+    </a>
+    <button
+      className="sc-fzoLsD dcjTmq"
+      onClick={[Function]}
+    >
+      <img
+        className="sc-AxmLO kRZbDE"
+        src="delete.svg"
+      />
+    </button>
+  </div>
+</div>
+`;
+
+exports[`Merchant renders merchant without bids 1`] = `
+<div
+  className="sc-AxjAm htNEyp"
+>
+  <img
+    alt="avatar"
+    className="sc-AxirZ fmnQqz"
+    src="default-avatar.png"
+  />
+  <div
+    className="sc-AxhUy lifGgf"
+  >
+    <h4
+      className="sc-AxiKw erQByv"
+    >
+      name
+       
+      lastname
+    </h4>
+    <div
+      className="sc-AxgMl bQvVVa"
+    >
+      <img
+        className="sc-AxhCb gnNDWi"
+        src="mail.svg"
+      />
+      <span>
+        test@test.com
+      </span>
+    </div>
+    <div
+      className="sc-AxgMl bQvVVa"
+    >
+      <img
+        className="sc-AxhCb gnNDWi"
+        src="phone.svg"
+      />
+      <span>
+        123456789
+      </span>
+    </div>
+  </div>
+  <div
+    className="sc-Axmtr bbWZXo"
+  >
+    <a
+      className="sc-fzozJi jEPYlu"
+      href="/update/1"
+      onClick={[Function]}
+    >
+      <img
+        className="sc-AxmLO kRZbDE"
+        src="edit.svg"
+      />
+    </a>
+    <button
+      className="sc-fzoLsD dcjTmq"
+      onClick={[Function]}
+    >
+      <img
+        className="sc-AxmLO kRZbDE"
+        src="delete.svg"
+      />
+    </button>
+  </div>
+</div>
+`;
+
+exports[`Merchant renders premium merchant 1`] = `
+<div
+  className="sc-AxjAm htNEyp"
+>
+  <img
+    alt="Premium user"
+    className="sc-AxheI jNJVop"
+    src="premium-user.svg"
+    title="Premium user"
+  />
+  <img
+    alt="avatar"
+    className="sc-AxirZ fmnQqz"
+    src="default-avatar.png"
+  />
+  <div
+    className="sc-AxhUy lifGgf"
+  >
+    <h4
+      className="sc-AxiKw erQByv"
+    >
+      name
+       
+      lastname
+    </h4>
+    <div
+      className="sc-AxgMl bQvVVa"
+    >
+      <img
+        className="sc-AxhCb gnNDWi"
+        src="mail.svg"
+      />
+      <span>
+        test@test.com
+      </span>
+    </div>
+    <div
+      className="sc-AxgMl bQvVVa"
+    >
+      <img
+        className="sc-AxhCb gnNDWi"
+        src="phone.svg"
+      />
+      <span>
+        123456789
+      </span>
+    </div>
+  </div>
+  <div
+    className="sc-Axmtr bbWZXo"
+  >
+    <a
+      className="sc-fzozJi jEPYlu"
+      href="/update/1"
+      onClick={[Function]}
+    >
+      <img
+        className="sc-AxmLO kRZbDE"
+        src="edit.svg"
+      />
+    </a>
+    <button
+      className="sc-fzoLsD dcjTmq"
+      onClick={[Function]}
+    >
+      <img
+        className="sc-AxmLO kRZbDE"
+        src="delete.svg"
+      />
+    </button>
+  </div>
+</div>
+`;

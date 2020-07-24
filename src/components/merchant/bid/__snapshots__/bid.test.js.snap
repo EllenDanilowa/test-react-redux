@@ -1,0 +1,33 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Bid renders component with defined props and formats date 1`] = `
+<div
+  className="sc-AxjAm jHPtui"
+>
+  <h5
+    className="sc-AxirZ bSdCkA"
+  >
+    title
+  </h5>
+  <div
+    className="sc-AxiKw xpHyP"
+  >
+    <p
+      className="sc-AxhCb jKSXXN"
+    >
+      <b>
+        Amount: 
+      </b>
+      2500
+    </p>
+    <p
+      className="sc-AxhCb jKSXXN"
+    >
+      <b>
+        Created: 
+      </b>
+      July 19, 2020
+    </p>
+  </div>
+</div>
+`;

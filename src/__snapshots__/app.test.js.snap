@@ -1,0 +1,48 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`App renders component correctly 1`] = `
+Array [
+  <header
+    className="sc-fzoxKX hyEIdl"
+>
+    <a
+        href="/"
+        onClick={[Function]}
+    >
+        <img
+            alt="logo"
+            className="sc-fzqPZZ kcCvUZ"
+            src="logo.png"
+        />
+    </a>
+</header>,
+  <main>
+    <div
+        className="sc-fzoXzr hNPPhd"
+    >
+        <div
+            className="sc-fzpjYC boDesf"
+        >
+            <h3
+                className="sc-fzoLag kmISQr"
+            >
+                All merchants
+            </h3>
+            <div>
+                <a
+                    href="/create"
+                    onClick={[Function]}
+                >
+                    <img
+                        className="sc-fznxsB wWyiq"
+                        src="plus.svg"
+                    />
+                    Add new merchant
+                </a>
+            </div>
+        </div>
+        <div />
+    </div>
+</main>,
+]
+`;

@@ -1,0 +1,19 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Button renders component with default props 1`] = `
+<input
+  className="sc-AxjAm gAbyhx"
+  onClick={[Function]}
+  type="button"
+  value="Title"
+/>
+`;
+
+exports[`Button renders component with defined title and button type 1`] = `
+<input
+  className="sc-AxjAm gAbyhx"
+  onClick={[Function]}
+  type="button"
+  value="Title"
+/>
+`;

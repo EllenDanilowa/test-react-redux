@@ -1,40 +1,38 @@
 import React from 'react';
-import { shallow } from 'enzyme';
+import renderer from 'react-test-renderer';
+import {shallow} from 'enzyme';
 import Button from './button';
 
 describe('Button', () => {
   const title = 'Title';
 
-  const createButton = (props) => {
-    return shallow(<Button title={title} {...props} />);
-  }
+  const createElement = (props, isSnapshot = true) => {
+    const template = (<Button {...props} />);
 
-  it('sets title', () => {
-    const element = createButton();
+    return isSnapshot ?
+      renderer.create(template).toJSON() :
+      shallow(template);
+  };
 
-    expect(element.prop('value')).toBe(title);
-  });
-
-  it('sets button type', () => {
+  it('renders component with defined title and button type', () => {
     const type = 'button';
-    const element = createButton({type});
+    const element = createElement({title, type});
 
-    expect(element.prop('type')).toBe(type);
+    expect(element).toMatchSnapshot();
   });
 
-  it('sets click callback', () => {
+  it('renders component with default props', () => {
+    const element = createElement({title});
+
+    expect(element).toMatchSnapshot();
+  });
+
+  it('sets click callback and triggers if clicked', () => {
     const onClick = jest.fn();
-    const element = createButton({onClick})
+    const element = createElement({title, onClick}, false);
 
     element.simulate('click');
 
     expect(onClick).toHaveBeenCalled();
-  });
-
-  it('inits default click callback and type', () => {
-    const element = createButton();
-
-    expect(element.prop('onClick')).toEqual(expect.any(Function));
-    expect(element.prop('type')).toBe('button');
   });
 });

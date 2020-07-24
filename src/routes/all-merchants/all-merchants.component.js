@@ -46,4 +46,9 @@ AllMerchants.propTypes = {
   updateVisibleMerchants: PropTypes.func.isRequired
 };
 
+AllMerchants.defaultProps = {
+  loading: false,
+  error: false
+}
+
 export default AllMerchants;

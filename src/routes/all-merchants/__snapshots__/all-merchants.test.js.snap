@@ -1,0 +1,127 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`AllMerchants renders component with error message if error 1`] = `
+<div
+  className="sc-AxirZ cSToxy"
+>
+  <div
+    className="sc-AxiKw iuHfWT"
+  >
+    <h3
+      className="sc-AxjAm hnoMwN"
+    >
+      All merchants
+    </h3>
+    <div>
+      <a
+        href="/create"
+        onClick={[Function]}
+      >
+        <img
+          className="sc-AxhCb dwZzjx"
+          src="plus.svg"
+        />
+        Add new merchant
+      </a>
+    </div>
+  </div>
+  <div>
+    <p>
+      Sorry, we could not load data
+    </p>
+  </div>
+</div>
+`;
+
+exports[`AllMerchants renders component with loading message when loading 1`] = `
+<div
+  className="sc-AxirZ cSToxy"
+>
+  <div
+    className="sc-AxiKw iuHfWT"
+  >
+    <h3
+      className="sc-AxjAm hnoMwN"
+    >
+      All merchants
+    </h3>
+    <div>
+      <a
+        href="/create"
+        onClick={[Function]}
+      >
+        <img
+          className="sc-AxhCb dwZzjx"
+          src="plus.svg"
+        />
+        Add new merchant
+      </a>
+    </div>
+  </div>
+  <div>
+    <p>
+      Loading...
+    </p>
+  </div>
+</div>
+`;
+
+exports[`AllMerchants renders component with merchant list if count is greater than 0 1`] = `
+<div
+  className="sc-AxirZ cSToxy"
+>
+  <div
+    className="sc-AxiKw iuHfWT"
+  >
+    <h3
+      className="sc-AxjAm hnoMwN"
+    >
+      All merchants
+    </h3>
+    <div>
+      <a
+        href="/create"
+        onClick={[Function]}
+      >
+        <img
+          className="sc-AxhCb dwZzjx"
+          src="plus.svg"
+        />
+        Add new merchant
+      </a>
+    </div>
+  </div>
+  <div>
+    Merchant List component
+  </div>
+</div>
+`;
+
+exports[`AllMerchants renders no main content if count is equal to 0 1`] = `
+<div
+  className="sc-AxirZ cSToxy"
+>
+  <div
+    className="sc-AxiKw iuHfWT"
+  >
+    <h3
+      className="sc-AxjAm hnoMwN"
+    >
+      All merchants
+    </h3>
+    <div>
+      <a
+        href="/create"
+        onClick={[Function]}
+      >
+        <img
+          className="sc-AxhCb dwZzjx"
+          src="plus.svg"
+        />
+        Add new merchant
+      </a>
+    </div>
+  </div>
+  <div />
+</div>
+`;

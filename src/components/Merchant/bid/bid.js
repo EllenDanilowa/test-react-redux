@@ -41,7 +41,7 @@ Bid.propTypes = {
     id: PropTypes.string.isRequired,
     carTitle: PropTypes.string.isRequired,
     amount: PropTypes.number.string,
-    created: PropTypes.string.isRequired
+    created: PropTypes.number.isRequired
   }).isRequired
 };
 

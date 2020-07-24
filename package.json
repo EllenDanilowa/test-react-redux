@@ -54,7 +54,8 @@
   "scripts": {
     "start": "node scripts/start.js",
     "build": "node scripts/build.js",
-    "test": "node scripts/test.js --env=jsdom"
+    "test": "node scripts/test.js --env=jsdom",
+    "test-coverage": "node scripts/test.js --env=jsdom --collectCoverage"
   },
   "babel": {
     "presets": [
@@ -63,6 +64,8 @@
   },
   "devDependencies": {
     "enzyme": "^3.11.0",
-    "enzyme-adapter-react-16": "^1.15.2"
+    "enzyme-adapter-react-16": "^1.15.2",
+    "mutation-observer": "^1.0.3",
+    "react-test-renderer": "^16.13.1"
   }
 }

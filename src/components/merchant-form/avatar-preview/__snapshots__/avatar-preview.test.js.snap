@@ -1,0 +1,14 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`AvatarPreview renders preview when default url is defined 1`] = `
+<div
+  className="sc-AxjAm jpchXk"
+>
+  
+  <img
+    alt="preview alt title"
+    className="sc-AxirZ cUVYWJ"
+    src="url/to/image"
+  />
+</div>
+`;

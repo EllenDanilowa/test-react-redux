@@ -1,0 +1,15 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Accordion renders component correctly 1`] = `
+<div>
+  <button
+    className="sc-AxhCb kOrOqp"
+    onClick={[Function]}
+  >
+    Title
+    <i
+      className="sc-AxjAm sc-AxirZ qnlCY"
+    />
+  </button>
+</div>
+`;

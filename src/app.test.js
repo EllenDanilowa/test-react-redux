@@ -1,11 +1,19 @@
 import React from 'react';
-import { shallow } from 'enzyme';
+import renderer from 'react-test-renderer';
 import App from './app';
 
 describe('App', () => {
-  it('renders without crashing', () => {
-    //
-    // const tree = shallow(<App />);
-    // expect(tree.text()).toBe('');
+  let element;
+
+  const createElement = () => {
+    const template = (<App/>);
+
+    return renderer.create(template).toJSON();
+  };
+
+  it('renders component correctly', () => {
+    element = createElement();
+
+    expect(element).toMatchSnapshot();
   });
 });

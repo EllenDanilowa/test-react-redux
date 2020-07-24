@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import {InputElement, ErrorMessage} from './input.styled';
 import {FieldWrapper, Label} from '../form.styled';
 
-export const DEFAULT_ERROR_MESSAGE = 'Oops are you sure? – this doesn’t look right';
+const DEFAULT_ERROR_MESSAGE = 'Oops are you sure? – this doesn’t look right';
 
 const Input = (props) => {
   const {

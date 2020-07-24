@@ -4,7 +4,7 @@ import {FieldWrapper, HiddenInput} from '../form.styled';
 import {Icon, Label} from './file-input.styled';
 import uploadIcon from './assets/upload.svg';
 
-const FileInput = ({name, title, refFunc, ...props}) => (
+const FileInput = ({name, title, refFunc, alt, ...props}) => (
   <FieldWrapper>
     <Label htmlFor={name}>
       <HiddenInput
@@ -13,7 +13,7 @@ const FileInput = ({name, title, refFunc, ...props}) => (
         ref={refFunc}
         {...props}
         type="file"/>
-      <Icon src={uploadIcon} alt="Upload a file"/>
+      <Icon src={uploadIcon} alt={alt}/>
       {title}
     </Label>
   </FieldWrapper>
@@ -22,7 +22,12 @@ const FileInput = ({name, title, refFunc, ...props}) => (
 FileInput.propTypes = {
   name: PropTypes.string.isRequired,
   title: PropTypes.string.isRequired,
-  refFunc: PropTypes.func.isRequired
+  refFunc: PropTypes.func.isRequired,
+  alt: PropTypes.string.isRequired
 };
+
+FileInput.defaultProps = {
+  alt: 'Upload a file'
+}
 
 export default FileInput;

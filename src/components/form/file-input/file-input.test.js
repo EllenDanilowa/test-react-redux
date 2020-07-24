@@ -1,8 +1,6 @@
 import React from 'react';
-import {shallow} from 'enzyme';
+import renderer from 'react-test-renderer';
 import FileInput from './file-input';
-import {Label} from './file-input.styled';
-import {HiddenInput} from '../form.styled';
 
 describe('FileInput', () => {
   let element;
@@ -10,39 +8,33 @@ describe('FileInput', () => {
   let name;
   let ref;
 
-  const createInput = ({ref, ...props}) => {
-    return shallow(<FileInput refFunc={ref} {...props}/>)
-  }
+  const createElement = ({ref, ...props}) => (
+    renderer.create(<FileInput refFunc={ref} {...props}/>).toJSON()
+  );
 
   beforeEach(() => {
     title = 'Title';
     name = 'name';
     ref = () => {};
-
-    element = createInput({ref, name, title});
   });
 
-  it('sets htmlFor to label', () => {
-    expect(element.find(Label).prop('htmlFor')).toBe(name);
+  it('renders component with all defined props', () => {
+    const alt = 'alt title';
+    element = createElement({name, ref, title, alt});
+
+    expect(element).toMatchSnapshot();
   });
 
-  it('sets title', () => {
-    expect(element.find(Label).text()).toBe(title);
-  });
-
-  it('sets id, name, ref and type to input', () => {
-    const input = element.find(HiddenInput);
-
-    expect(input.prop('id')).toBe(name);
-    expect(input.prop('name')).toBe(name);
-    expect(input.getElement().ref).toBe(ref);
-    expect(input.prop('type')).toBe('file');
-  });
-
-  it('sets additional props to input if exists', () => {
+  it('renders component with additional props', () => {
     const accept = 'image/*';
-    element = createInput({ref, name, title, accept});
+    element = createElement({name, ref, title, accept});
 
-    expect(element.find(HiddenInput).prop('accept')).toBe(accept);
+    expect(element).toMatchSnapshot();
+  });
+
+  it('renders component with default props', () => {
+    element = createElement({name, ref, title});
+
+    expect(element).toMatchSnapshot();
   });
 });

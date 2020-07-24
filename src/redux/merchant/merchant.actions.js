@@ -1,4 +1,4 @@
-import API from '../../api/merchant';
+import API from '../../../api/merchant';
 import {push} from 'connected-react-router';
 import {
   FETCH_MERCHANTS_BEGIN,

@@ -4,7 +4,6 @@ import Merchant from '../merchant/merchant';
 import {PaginationWrapper, PAGINATION_CLASS_NAMES} from './merchant-list.styled';
 import Pagination from 'react-paginate';
 
-
 const DEFAULT_LIMIT = 1;
 
 const MerchantList = ({limit, merchants, count, deleteMerchant, updateVisibleMerchants}) => {
@@ -23,7 +22,7 @@ const MerchantList = ({limit, merchants, count, deleteMerchant, updateVisibleMer
 
   return (
     <div>
-      {merchants && (
+      {Boolean(merchants.length) && (
         <Fragment>
           {merchants.map((merchant) =>
             <Merchant
@@ -68,6 +67,7 @@ MerchantList.propTypes = {
 };
 
 MerchantList.defaultProps = {
+  merchants: [],
   limit: DEFAULT_LIMIT
 };
 

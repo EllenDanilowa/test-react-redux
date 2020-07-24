@@ -1,0 +1,66 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Input renders component correctly 1`] = `
+<div
+  className="sc-AxhCb gssqqQ"
+>
+  <label
+    className="sc-AxiKw gfimZx"
+    htmlFor="name"
+  >
+    Title
+  </label>
+  <input
+    className="sc-AxjAm cPjdGB"
+    id="name"
+    name="name"
+    placeholder="placeholder"
+    type="number"
+  />
+  <p
+    className="sc-AxirZ liZJXo"
+  >
+    error message
+  </p>
+</div>
+`;
+
+exports[`Input renders component with default props correctly 1`] = `
+<div
+  className="sc-AxhCb gssqqQ"
+>
+  <label
+    className="sc-AxiKw gfimZx"
+    htmlFor="name"
+  >
+    Title
+  </label>
+  <input
+    className="sc-AxjAm iCpIIE"
+    id="name"
+    name="name"
+    placeholder=""
+    type="text"
+  />
+</div>
+`;
+
+exports[`Input renders component with no error message if no error 1`] = `
+<div
+  className="sc-AxhCb gssqqQ"
+>
+  <label
+    className="sc-AxiKw gfimZx"
+    htmlFor="name"
+  >
+    Title
+  </label>
+  <input
+    className="sc-AxjAm iCpIIE"
+    id="name"
+    name="name"
+    placeholder="placeholder"
+    type="number"
+  />
+</div>
+`;

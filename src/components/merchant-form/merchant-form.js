@@ -2,11 +2,13 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import {useForm} from 'react-hook-form';
 import {Link} from 'react-router-dom';
+
 import Input from '../form/input/input';
 import FileInput from '../form/file-input/file-input';
 import Checkbox from '../form/checkbox/checkbox';
 import Button from '../form/button/button';
 import AvatarPreview from './avatar-preview/avatar-preview';
+
 import {FIELDS} from './merchant-form.constants';
 import {getDefaultMerchant} from './merchant-form.utils';
 

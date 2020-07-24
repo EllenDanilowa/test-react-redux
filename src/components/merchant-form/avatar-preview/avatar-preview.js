@@ -31,11 +31,8 @@ const AvatarPreview = ({files, alt, defaultImageUrl}) => {
 
 AvatarPreview.propTypes = {
   alt: PropTypes.string.isRequired,
-  files: PropTypes.object.isRequired,
+  files: PropTypes.object,
   defaultImageUrl: PropTypes.string
-};
-
-AvatarPreview.propTypes = {
 };
 
 export default AvatarPreview;

@@ -1,0 +1,74 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`FileInput renders component with additional props 1`] = `
+<div
+  className="sc-AxirZ eQxQOc"
+>
+  <label
+    className="sc-AxjAm sc-AxhCb eJQEJc"
+    htmlFor="name"
+  >
+    <input
+      accept="image/*"
+      className="sc-AxiKw hWSlZL"
+      id="name"
+      name="name"
+      type="file"
+    />
+    <img
+      alt="Upload a file"
+      className="sc-AxhUy eUgZfS"
+      src="upload.svg"
+    />
+    Title
+  </label>
+</div>
+`;
+
+exports[`FileInput renders component with all defined props 1`] = `
+<div
+  className="sc-AxirZ eQxQOc"
+>
+  <label
+    className="sc-AxjAm sc-AxhCb eJQEJc"
+    htmlFor="name"
+  >
+    <input
+      className="sc-AxiKw hWSlZL"
+      id="name"
+      name="name"
+      type="file"
+    />
+    <img
+      alt="alt title"
+      className="sc-AxhUy eUgZfS"
+      src="upload.svg"
+    />
+    Title
+  </label>
+</div>
+`;
+
+exports[`FileInput renders component with default props 1`] = `
+<div
+  className="sc-AxirZ eQxQOc"
+>
+  <label
+    className="sc-AxjAm sc-AxhCb eJQEJc"
+    htmlFor="name"
+  >
+    <input
+      className="sc-AxiKw hWSlZL"
+      id="name"
+      name="name"
+      type="file"
+    />
+    <img
+      alt="Upload a file"
+      className="sc-AxhUy eUgZfS"
+      src="upload.svg"
+    />
+    Title
+  </label>
+</div>
+`;

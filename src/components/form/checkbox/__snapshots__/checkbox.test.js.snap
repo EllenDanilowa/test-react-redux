@@ -1,0 +1,41 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Checkbox renders component with defined props 1`] = `
+<div
+  className="sc-AxgMl hnlgA-D"
+>
+  <label
+    className="sc-AxhUy lTvU"
+    htmlFor="name"
+  >
+    <div
+      className="sc-AxjAm gZeZUl"
+    >
+      <input
+        className="sc-AxheI icGmwi"
+        id="name"
+        name="name"
+        type="checkbox"
+      />
+      <div
+        checked={true}
+        className="sc-AxhCb dJfVvl"
+      >
+        <svg
+          className="sc-AxirZ cZmLyS"
+          viewBox="0 0 24 24"
+        >
+          <polyline
+            points="20 6 9 17 4 12"
+          />
+        </svg>
+      </div>
+      <span
+        className="sc-AxiKw iNXYxW"
+      >
+        Title
+      </span>
+    </div>
+  </label>
+</div>
+`;

@@ -1,0 +1,312 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`MerchantForm renders component by default 1`] = `
+<div>
+  <form
+    onSubmit={[Function]}
+  >
+    <div
+      className="sc-AxhCb gssqqQ"
+    >
+      <label
+        className="sc-AxiKw gfimZx"
+        htmlFor="firstname"
+      >
+        First name
+      </label>
+      <input
+        className="sc-AxjAm iCpIIE"
+        id="firstname"
+        name="firstname"
+        placeholder=""
+        type="text"
+      />
+    </div>
+    <div
+      className="sc-AxhCb gssqqQ"
+    >
+      <label
+        className="sc-AxiKw gfimZx"
+        htmlFor="lastname"
+      >
+        Last name
+      </label>
+      <input
+        className="sc-AxjAm iCpIIE"
+        id="lastname"
+        name="lastname"
+        placeholder=""
+        type="text"
+      />
+    </div>
+    <div
+      className="sc-AxhCb gssqqQ"
+    >
+      <label
+        className="sc-AxiKw gfimZx"
+        htmlFor="email"
+      >
+        Email
+      </label>
+      <input
+        className="sc-AxjAm iCpIIE"
+        id="email"
+        name="email"
+        placeholder=""
+        type="text"
+      />
+    </div>
+    <div
+      className="sc-AxhCb gssqqQ"
+    >
+      <label
+        className="sc-AxiKw gfimZx"
+        htmlFor="phone"
+      >
+        Phone number
+      </label>
+      <input
+        className="sc-AxjAm iCpIIE"
+        id="phone"
+        name="phone"
+        placeholder=""
+        type="tel"
+      />
+    </div>
+    <div
+      className="sc-AxhCb gssqqQ"
+    >
+      <label
+        className="sc-AxiKw gfimZx"
+        htmlFor="hasPremium"
+      >
+        <div
+          className="sc-Axmtr hMdFKE"
+        >
+          <input
+            className="sc-AxhUy buggvC"
+            id="hasPremium"
+            name="hasPremium"
+            type="checkbox"
+          />
+          <div
+            checked={false}
+            className="sc-fzoLsD kGKtmS"
+          >
+            <svg
+              className="sc-AxmLO dXBjKZ"
+              viewBox="0 0 24 24"
+            >
+              <polyline
+                points="20 6 9 17 4 12"
+              />
+            </svg>
+          </div>
+          <span
+            className="sc-fzozJi caPSEc"
+          >
+            Premium
+          </span>
+        </div>
+      </label>
+    </div>
+    <div
+      className="sc-AxhCb gssqqQ"
+    >
+      <label
+        className="sc-AxiKw sc-AxgMl efeNvD"
+        htmlFor="avatar"
+      >
+        <input
+          accept="image/*"
+          className="sc-AxhUy buggvC"
+          id="avatar"
+          name="avatar"
+          type="file"
+        />
+        <img
+          alt="Upload a file"
+          className="sc-AxheI fmtaLC"
+          src="upload.svg"
+        />
+        Upload a new avatar
+      </label>
+    </div>
+    <div
+      className="sc-fzplWN ksehmO"
+    >
+      
+    </div>
+    <input
+      className="sc-fzpans OoBJa"
+      onClick={[Function]}
+      type="submit"
+      value="Submit"
+    />
+  </form>
+  <a
+    href="/"
+    onClick={[Function]}
+  >
+    Cancel
+  </a>
+</div>
+`;
+
+exports[`MerchantForm renders component with defined merchant 1`] = `
+<div>
+  <form
+    onSubmit={[Function]}
+  >
+    <div
+      className="sc-AxhCb gssqqQ"
+    >
+      <label
+        className="sc-AxiKw gfimZx"
+        htmlFor="firstname"
+      >
+        First name
+      </label>
+      <input
+        className="sc-AxjAm iCpIIE"
+        id="firstname"
+        name="firstname"
+        placeholder=""
+        type="text"
+      />
+    </div>
+    <div
+      className="sc-AxhCb gssqqQ"
+    >
+      <label
+        className="sc-AxiKw gfimZx"
+        htmlFor="lastname"
+      >
+        Last name
+      </label>
+      <input
+        className="sc-AxjAm iCpIIE"
+        id="lastname"
+        name="lastname"
+        placeholder=""
+        type="text"
+      />
+    </div>
+    <div
+      className="sc-AxhCb gssqqQ"
+    >
+      <label
+        className="sc-AxiKw gfimZx"
+        htmlFor="email"
+      >
+        Email
+      </label>
+      <input
+        className="sc-AxjAm iCpIIE"
+        id="email"
+        name="email"
+        placeholder=""
+        type="text"
+      />
+    </div>
+    <div
+      className="sc-AxhCb gssqqQ"
+    >
+      <label
+        className="sc-AxiKw gfimZx"
+        htmlFor="phone"
+      >
+        Phone number
+      </label>
+      <input
+        className="sc-AxjAm iCpIIE"
+        id="phone"
+        name="phone"
+        placeholder=""
+        type="tel"
+      />
+    </div>
+    <div
+      className="sc-AxhCb gssqqQ"
+    >
+      <label
+        className="sc-AxiKw gfimZx"
+        htmlFor="hasPremium"
+      >
+        <div
+          className="sc-Axmtr hMdFKE"
+        >
+          <input
+            className="sc-AxhUy buggvC"
+            id="hasPremium"
+            name="hasPremium"
+            type="checkbox"
+          />
+          <div
+            checked={true}
+            className="sc-fzoLsD wZUoW"
+          >
+            <svg
+              className="sc-AxmLO dXBjKZ"
+              viewBox="0 0 24 24"
+            >
+              <polyline
+                points="20 6 9 17 4 12"
+              />
+            </svg>
+          </div>
+          <span
+            className="sc-fzozJi caPSEc"
+          >
+            Premium
+          </span>
+        </div>
+      </label>
+    </div>
+    <div
+      className="sc-AxhCb gssqqQ"
+    >
+      <label
+        className="sc-AxiKw sc-AxgMl efeNvD"
+        htmlFor="avatar"
+      >
+        <input
+          accept="image/*"
+          className="sc-AxhUy buggvC"
+          id="avatar"
+          name="avatar"
+          type="file"
+        />
+        <img
+          alt="Upload a file"
+          className="sc-AxheI fmtaLC"
+          src="upload.svg"
+        />
+        Upload a new avatar
+      </label>
+    </div>
+    <div
+      className="sc-fzplWN ksehmO"
+    >
+      
+      <img
+        alt="Avatar preview"
+        className="sc-fznyAO lhbMCo"
+        src="avatar/url"
+      />
+    </div>
+    <input
+      className="sc-fzpans OoBJa"
+      onClick={[Function]}
+      type="submit"
+      value="Submit"
+    />
+  </form>
+  <a
+    href="/"
+    onClick={[Function]}
+  >
+    Cancel
+  </a>
+</div>
+`;

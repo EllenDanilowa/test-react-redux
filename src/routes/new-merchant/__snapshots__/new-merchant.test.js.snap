@@ -1,0 +1,14 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`NewMerchant renders component correctly 1`] = `
+<div
+  className="sc-AxirZ cSToxy"
+>
+  <h3
+    className="sc-AxjAm hnoMwN"
+  >
+    Create a new merchant
+  </h3>
+  Merchant Form component
+</div>
+`;
