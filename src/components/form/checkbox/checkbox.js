@@ -16,9 +16,9 @@ const Checkbox = ({refFunc, title, name, checked}) => (
   <FieldWrapper>
     <Label htmlFor={name}>
       <CheckboxWrapper>
-        <HiddenInput ref={refFunc}
+        <HiddenInput id={name}
                      name={name}
-                     id={name}
+                     ref={refFunc}
                      type="checkbox"/>
         <StyledCheckbox checked={checked}>
           <Icon viewBox="0 0 24 24" >
@@ -35,7 +35,7 @@ Checkbox.propTypes = {
   refFunc: PropTypes.func.isRequired,
   name: PropTypes.string.isRequired,
   title: PropTypes.string.isRequired,
-  checked: PropTypes.bool
+  checked: PropTypes.bool.isRequired
 };
 
 export default Checkbox;

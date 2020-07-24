@@ -1,12 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import {
-  InputElement,
-  ErrorMessage
-} from './input.styled';
+import {InputElement, ErrorMessage} from './input.styled';
 import {FieldWrapper, Label} from '../form.styled';
 
-const DEFAULT_ERROR_MESSAGE = 'Oops are you sure? – this doesn’t look right';
+export const DEFAULT_ERROR_MESSAGE = 'Oops are you sure? – this doesn’t look right';
 
 const Input = (props) => {
   const {
@@ -25,27 +22,29 @@ const Input = (props) => {
       <InputElement
         id={name}
         name={name}
-        type={type}
-        placeholder={placeholder}
         ref={refFunc}
+        placeholder={placeholder}
+        type={type}
         error={Boolean(error)}
       />
-      {error && <ErrorMessage>{errorMessage || DEFAULT_ERROR_MESSAGE}</ErrorMessage>}
+      {error && <ErrorMessage>{errorMessage}</ErrorMessage>}
     </FieldWrapper>
   );
 };
 
 Input.propTypes = {
   name: PropTypes.string.isRequired,
-  placeholder: PropTypes.string,
+  placeholder: PropTypes.string.isRequired,
   title: PropTypes.string.isRequired,
   type: PropTypes.string.isRequired,
   refFunc: PropTypes.func.isRequired,
   error: PropTypes.object,
-  errorMessage: PropTypes.string
+  errorMessage: PropTypes.string.isRequired
 };
 
 Input.defaultProps = {
+  errorMessage: DEFAULT_ERROR_MESSAGE,
+  placeholder: '',
   type: 'text'
 };
 

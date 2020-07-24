@@ -6,7 +6,7 @@ import {
   ArrowUp
 } from './accordion.styled';
 
-const Accordion = (props) => {
+const Accordion = ({title, children}) => {
   const [opened, setOpened] = useState(false);
 
   const open = () => {
@@ -16,12 +16,12 @@ const Accordion = (props) => {
   return (
     <div>
       <Label onClick={open}>
-        {props.title}
+        {title}
         {opened ? <ArrowUp/> : <ArrowDown/>}
       </Label>
       {opened && (
         <div>
-          {props.children}
+          {children}
         </div>
       )}
     </div>
