@@ -20,7 +20,6 @@ const _getAll = () => {
 
       return item;
     });
-    data.count = _merchants.length;
 
     setTimeout(() => resolve({data}), TIMEOUT);
   });

@@ -11,6 +11,7 @@ import {
 const initialState = {
   items: [],
   visibleItems: [],
+  fetched: false, // Temp solution: for not refreshing state on create/update
   count: 0,
   loading: false,
   error: false
@@ -30,12 +31,18 @@ export default (state, action) => {
       };
     }
     case FETCH_MERCHANTS_SUCCESS: {
-      return {
+      const newState = {
         ...state,
-        loading: false,
-        items: action.payload.merchants,
-        count: action.payload.count
+        fetched: true,
+        loading: false
       };
+
+      if (!state.fetched) {
+        newState.items = action.payload.merchants;
+        newState.count = action.payload.merchants.length;
+      }
+
+      return newState;
     }
     case FETCH_MERCHANTS_FAILURE: {
       return {
@@ -55,10 +62,12 @@ export default (state, action) => {
     }
     case CREATE_NEW_MERCHANT_SUCCESS: {
       const newItem = action.payload.merchant;
+      const items = (state.items || []).concat([newItem]);
 
       return {
         ...state,
-        items: (state.items || []).concat([newItem])
+        items,
+        count: items.length
       };
     }
     case UPDATE_MERCHANT_SUCCESS: {
@@ -71,10 +80,12 @@ export default (state, action) => {
     }
     case DELETE_MERCHANT_SUCCESS: {
       const id = action.payload.id;
+      const items = state.items.filter((item) => item.id !== id);
 
       return {
         ...state,
-        items: state.items.filter((item) => item.id !== id)
+        items,
+        count: items.length
       };
     }
     default: {

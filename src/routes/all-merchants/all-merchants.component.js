@@ -6,12 +6,9 @@ import {Title, PageWrapper} from '../route.styled';
 import {Header, Icon} from './all-merchants.styled';
 import PlusIcon from './assets/plus.svg';
 
-const AllMerchants = ({loading, error, merchants, count, deleteMerchant, fetchMerchants, updateVisibleMerchants}) => {
+const AllMerchants = ({loading, error, merchants, merchantsCount, deleteMerchant, fetchMerchants, updateVisibleMerchants}) => {
   useEffect(() => {
-    if (count) return; //Temp: remove, coz we always should get refreshed data from server
-
-    fetchMerchants();
-
+     fetchMerchants();
   }, []);
 
   return (
@@ -26,8 +23,8 @@ const AllMerchants = ({loading, error, merchants, count, deleteMerchant, fetchMe
         </div>
       </Header>
       <div>
-        {!(error || loading) && Boolean(count) && (
-          <MerchantList count={count}
+        {!(error || loading) && Boolean(merchantsCount) && (
+          <MerchantList count={merchantsCount}
                         merchants={merchants}
                         deleteMerchant={deleteMerchant}
                         updateVisibleMerchants={updateVisibleMerchants}/>
@@ -43,7 +40,7 @@ AllMerchants.propTypes = {
   loading: PropTypes.bool,
   error: PropTypes.bool,
   merchants: PropTypes.array,
-  count: PropTypes.number.isRequired,
+  merchantsCount: PropTypes.number.isRequired,
   deleteMerchant: PropTypes.func.isRequired,
   fetchMerchants: PropTypes.func.isRequired,
   updateVisibleMerchants: PropTypes.func.isRequired

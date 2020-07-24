@@ -66,8 +66,7 @@ export const fetchMerchantsBegin = () => ({
 export const fetchMerchantsSuccess = (data) => ({
   type: FETCH_MERCHANTS_SUCCESS,
   payload: {
-    merchants: data.items,
-    count: data.count
+    merchants: data.items
   }
 });
 

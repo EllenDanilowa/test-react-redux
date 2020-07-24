@@ -6,7 +6,7 @@ const mapStateToProps = (state) => ({
   loading: state.merchant.loading,
   error: state.merchant.error,
   merchants: state.merchant.visibleItems,
-  count: state.merchant.count
+  merchantsCount: state.merchant.count
 });
 
 const mapDispatchToProps = (dispatch) => ({
