@@ -49,6 +49,6 @@ AllMerchants.propTypes = {
 AllMerchants.defaultProps = {
   loading: false,
   error: false
-}
+};
 
 export default AllMerchants;

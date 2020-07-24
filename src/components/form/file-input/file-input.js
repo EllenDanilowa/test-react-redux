@@ -28,6 +28,6 @@ FileInput.propTypes = {
 
 FileInput.defaultProps = {
   alt: 'Upload a file'
-}
+};
 
 export default FileInput;

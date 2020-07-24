@@ -55,7 +55,9 @@
     "start": "node scripts/start.js",
     "build": "node scripts/build.js",
     "test": "node scripts/test.js --env=jsdom",
-    "test-coverage": "node scripts/test.js --env=jsdom --collectCoverage"
+    "test-coverage": "node scripts/test.js --env=jsdom --collectCoverage",
+    "eslint": "eslint src/ --ext .js",
+    "eslint-fix": "eslint src/ --ext .js --fix"
   },
   "babel": {
     "presets": [

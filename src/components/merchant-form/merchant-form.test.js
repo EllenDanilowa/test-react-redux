@@ -2,7 +2,7 @@ import React from 'react';
 import renderer from 'react-test-renderer';
 import {MemoryRouter} from 'react-router';
 import MerchantForm from './merchant-form';
-import {mount} from "enzyme";
+import {mount} from 'enzyme';
 import {getDefaultMerchant} from './merchant-form.utils';
 
 describe('MerchantForm', () => {

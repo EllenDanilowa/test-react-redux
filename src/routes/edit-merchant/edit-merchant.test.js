@@ -1,6 +1,6 @@
 import React from 'react';
 import renderer from 'react-test-renderer';
-import EditMerchant from "./edit-merchant.component";
+import EditMerchant from './edit-merchant.component';
 
 jest.mock('../../components/merchant-form/merchant-form', () => () => 'Merchant Form component');
 

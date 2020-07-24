@@ -1,7 +1,7 @@
 import React from 'react';
 import renderer from 'react-test-renderer';
 import MerchantList from './merchant-list';
-import {mount} from "enzyme";
+import {mount} from 'enzyme';
 
 jest.mock('react-paginate', () => ({pageCount, onPageChange}) => (<div><p id="pageCount">'{pageCount}'</p><button id="pageChange" onClick={onPageChange}/></div>));
 jest.mock('../merchant/merchant', () => ({item}) => (<div>merchant: '{item.firstname} {item.lastname}'</div>));

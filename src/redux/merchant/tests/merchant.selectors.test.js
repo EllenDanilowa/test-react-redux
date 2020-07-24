@@ -18,7 +18,7 @@ describe('Merchant Selectors', () => {
             }
           ]
         }
-      }
+      };
     });
 
     it('returns merchant by id', () => {

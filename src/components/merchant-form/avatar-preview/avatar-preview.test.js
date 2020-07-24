@@ -2,10 +2,6 @@ import React from 'react';
 import renderer from 'react-test-renderer';
 import {shallow} from 'enzyme';
 import AvatarPreview from './avatar-preview';
-import {
-  PreviewWrapper,
-  Image
-} from './avatar-preview.styled';
 
 describe('AvatarPreview', () => {
   let alt;
@@ -21,8 +17,6 @@ describe('AvatarPreview', () => {
 
   beforeEach(() => {
     alt = 'preview alt title';
-
-
   });
 
   it('renders preview when default url is defined', () => {

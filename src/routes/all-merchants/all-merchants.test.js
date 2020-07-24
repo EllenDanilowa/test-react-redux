@@ -1,6 +1,6 @@
 import React from 'react';
 import renderer from 'react-test-renderer';
-import AllMerchants from "./all-merchants.component";
+import AllMerchants from './all-merchants.component';
 import {MemoryRouter} from 'react-router';
 
 jest.mock('../../components/merchant-list/merchant-list', () => () => 'Merchant List component');

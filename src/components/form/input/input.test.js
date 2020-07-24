@@ -14,7 +14,7 @@ describe('Input', () => {
 
   const createInput = ({ref, ...props}) => {
     return renderer.create(<Input refFunc={ref} {...props}/>).toJSON();
-  }
+  };
 
   beforeEach(() => {
     title = 'Title';
