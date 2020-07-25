@@ -6,9 +6,9 @@ import {Title, PageWrapper} from '../route.styled';
 import {Header, Icon} from './all-merchants.styled';
 import PlusIcon from './assets/plus.svg';
 
-const AllMerchants = ({loading, error, merchants, merchantsCount, deleteMerchant, fetchMerchants, updateVisibleMerchants}) => {
+const AllMerchants = ({loading, error, merchants, count, deleteMerchant, fetchMerchants, updateVisibleMerchants, fetched}) => {
   useEffect(() => {
-     fetchMerchants();
+     if (!fetched) fetchMerchants();
   }, []);
 
   return (
@@ -23,8 +23,8 @@ const AllMerchants = ({loading, error, merchants, merchantsCount, deleteMerchant
         </div>
       </Header>
       <div>
-        {!(error || loading) && Boolean(merchantsCount) && (
-          <MerchantList count={merchantsCount}
+        {!(error || loading) && Boolean(count) && (
+          <MerchantList count={count}
                         merchants={merchants}
                         deleteMerchant={deleteMerchant}
                         updateVisibleMerchants={updateVisibleMerchants}/>
@@ -39,8 +39,9 @@ const AllMerchants = ({loading, error, merchants, merchantsCount, deleteMerchant
 AllMerchants.propTypes = {
   loading: PropTypes.bool,
   error: PropTypes.bool,
+  fetched: PropTypes.bool,
   merchants: PropTypes.array,
-  merchantsCount: PropTypes.number.isRequired,
+  count: PropTypes.number.isRequired,
   deleteMerchant: PropTypes.func.isRequired,
   fetchMerchants: PropTypes.func.isRequired,
   updateVisibleMerchants: PropTypes.func.isRequired

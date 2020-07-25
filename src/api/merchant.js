@@ -6,23 +6,16 @@ import {
   convertImage
 } from './merchant.utils';
 
-const TIMEOUT = 250;
-
-/**
- * Mocking client-server processing
- */
 const _getAll = () => {
-  return new Promise((resolve) => {
-    const data = {};
+  const data = {};
 
-    data.items = _merchants.map((item) => {
-      item.bids = _bids.slice(0, getRandomInt(_bids.length));
+  data.items = _merchants.map((item) => {
+    item.bids = _bids.slice(0, getRandomInt(_bids.length));
 
-      return item;
-    });
-
-    setTimeout(() => resolve({data}), TIMEOUT);
+    return item;
   });
+
+  return data;
 };
 
 const _update = (merchant) => {
@@ -33,7 +26,7 @@ const _update = (merchant) => {
       bids: merchant.id ? merchant.bids : _bids.slice(0, getRandomInt(_bids.length)),
       avatar: null
     };
-    const resolvePromise = () => setTimeout(() => resolve({data: newMerchant}), TIMEOUT);
+    const resolvePromise = () => resolve(newMerchant);
 
     if (merchant.avatar && merchant.avatar.length) {
       convertImage(merchant.avatar[0]).then((image) => {
@@ -51,10 +44,8 @@ const _update = (merchant) => {
   });
 };
 
-const _delete = (id) => {
-  return new Promise((resolve) => {
-    setTimeout(() => resolve({data: id}), TIMEOUT);
-  });
+const _delete = () => {
+  return '';
 };
 
 export default {

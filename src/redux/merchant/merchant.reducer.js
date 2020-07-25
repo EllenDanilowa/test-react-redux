@@ -31,25 +31,19 @@ export default (state, action) => {
       };
     }
     case FETCH_MERCHANTS_SUCCESS: {
-      const newState = {
+      return {
         ...state,
         fetched: true,
-        loading: false
+        loading: false,
+        items: action.payload.merchants,
+        count: action.payload.merchants.length
       };
-
-      if (!state.fetched) {
-        newState.items = action.payload.merchants;
-        newState.count = action.payload.merchants.length;
-      }
-
-      return newState;
     }
     case FETCH_MERCHANTS_FAILURE: {
       return {
         ...state,
         loading: false,
-        error: true,
-        items: []
+        error: true
       };
     }
     case UPDATE_VISIBLE_MERCHANTS: {

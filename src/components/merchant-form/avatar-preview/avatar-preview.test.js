@@ -27,13 +27,19 @@ describe('AvatarPreview', () => {
     expect(element).toMatchSnapshot();
   });
 
-  xit('renders preview when image file is defined', () => {
-
+  it('updates preview if file exists', async () => {
+    const setState = jest.fn();
     const files = {
       0: new Blob([''], {type: 'image/png'}),
       length: 1
     };
+    const convertedImage = 'data:image/png;base64,';
+    jest.spyOn(React, 'useState').mockImplementation((init) => [init, setState]);
 
-    element = createElement({files, alt});
+    await renderer.act(async () => {
+      element = createElement({files, alt});
+    });
+
+    expect(setState).toHaveBeenCalledWith(convertedImage);
   });
 });

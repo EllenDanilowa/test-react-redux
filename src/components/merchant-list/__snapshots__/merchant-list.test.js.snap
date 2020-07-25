@@ -29,10 +29,6 @@ exports[`MerchantList renders component 1`] = `
         2
         '
       </p>
-      <button
-        id="pageChange"
-        onClick={[Function]}
-      />
     </div>
   </div>
 </div>

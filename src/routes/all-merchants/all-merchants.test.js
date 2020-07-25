@@ -8,7 +8,7 @@ jest.mock('../../components/merchant-list/merchant-list', () => () => 'Merchant 
 describe('AllMerchants', () => {
   let element;
   let merchants;
-  let merchantsCount;
+  let count;
   let deleteMerchant;
   let fetchMerchants;
   let updateVisibleMerchants;
@@ -20,7 +20,7 @@ describe('AllMerchants', () => {
   };
 
   beforeEach(() => {
-    merchantsCount = 0;
+    count = 0;
     deleteMerchant = () => {};
     updateVisibleMerchants = () => {};
     fetchMerchants = jest.fn();
@@ -30,14 +30,14 @@ describe('AllMerchants', () => {
   });
 
   it('fetches merchants on mounting', () => {
-    element = createElement({merchants, merchantsCount, deleteMerchant, fetchMerchants, updateVisibleMerchants});
+    element = createElement({merchants, count, deleteMerchant, fetchMerchants, updateVisibleMerchants});
 
     expect(fetchMerchants).toHaveBeenCalled();
   });
 
   it('renders component with loading message when loading', () => {
     const loading = true;
-    element = createElement({loading, merchants, merchantsCount, deleteMerchant, fetchMerchants, updateVisibleMerchants});
+    element = createElement({loading, merchants, count, deleteMerchant, fetchMerchants, updateVisibleMerchants});
 
     expect(fetchMerchants).toHaveBeenCalled();
     expect(element).toMatchSnapshot();
@@ -45,21 +45,21 @@ describe('AllMerchants', () => {
 
   it('renders component with error message if error', () => {
     const error = true;
-    element = createElement({error, merchants, merchantsCount, deleteMerchant, fetchMerchants, updateVisibleMerchants});
+    element = createElement({error, merchants, count, deleteMerchant, fetchMerchants, updateVisibleMerchants});
 
     expect(element).toMatchSnapshot();
   });
 
   it('renders component with merchant list if count is greater than 0', () => {
-    merchantsCount = 5;
-    element = createElement({merchants, merchantsCount, deleteMerchant, fetchMerchants, updateVisibleMerchants});
+    count = 5;
+    element = createElement({merchants, count, deleteMerchant, fetchMerchants, updateVisibleMerchants});
 
     expect(element).toMatchSnapshot();
   });
 
   it('renders no main content if count is equal to 0', () => {
-    merchantsCount = 0;
-    element = createElement({merchants, merchantsCount, deleteMerchant, fetchMerchants, updateVisibleMerchants});
+    count = 0;
+    element = createElement({merchants, count, deleteMerchant, fetchMerchants, updateVisibleMerchants});
 
     expect(element).toMatchSnapshot();
   });

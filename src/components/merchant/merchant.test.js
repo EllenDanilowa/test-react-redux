@@ -5,8 +5,10 @@ import {mount} from 'enzyme';
 import Merchant from './merchant';
 import {DeleteButton} from './merchant.styled';
 
+/* eslint-disable react/display-name, react/prop-types */
 jest.mock('./bid/bid', () => () => 'Bid component');
-jest.mock('./accordion/accordion', () => ({children}) => (<div><p>Accordion</p><div>'{children}'</div></div>));
+jest.mock('./accordion/accordion', () => ({children}) => (<div><p>Accordion</p><div>&apos;{children}&apos;</div></div>));
+/* eslint-enable react/display-name, react/prop-types */
 
 describe('Merchant', () => {
   let element;

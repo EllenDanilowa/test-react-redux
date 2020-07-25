@@ -1,4 +1,3 @@
-import API from '../../api/merchant';
 import {push} from 'connected-react-router';
 import {
   FETCH_MERCHANTS_BEGIN,
@@ -10,12 +9,27 @@ import {
   DELETE_MERCHANT_SUCCESS,
 } from './merchant.constants';
 
+const getFormData = (data) => {
+  // Use it when send to a server
+  // const formData = new FormData();
+  //
+  // for (const name in data) {
+  //   formData.append(name, data[name]);
+  // }
+  //
+  // return formData;
+
+  return data;
+};
+
 export const fetchMerchants = () => {
   return (dispatch) => {
     dispatch(fetchMerchantsBegin());
 
-    return API.getAll()
-      .then((json) => dispatch(fetchMerchantsSuccess(json.data)))
+    return fetch('/merchants', {
+      method: 'GET'
+    }).then(({body}) => JSON.parse(body))
+      .then((body) => dispatch(fetchMerchantsSuccess(body)))
       .catch((error) => dispatch(fetchMerchantsFailure(error)));
   };
 };
@@ -24,12 +38,18 @@ export const createMerchant = (item) => {
   return (dispatch) => {
     //dispatch(createMerchantsBegin());
 
-    return API.create(item)
-      .then((json) => {
-        dispatch(createNewMerchantSuccess((json.data)));
+    return fetch('/merchants/create', {
+      method: 'POST',
+      headers: {
+        'Content-type': 'multipart/form-data'
+      },
+      body: getFormData(item)
+    }).then(({body}) => JSON.parse(body))
+      .then((body) => {
+        dispatch(createNewMerchantSuccess((body)));
         dispatch(push(''));
       });
-      //.catch((error) => dispatch(createMerchantFailure(error)));
+    //.catch((error) => dispatch(createMerchantFailure(error)));
   };
 };
 
@@ -37,23 +57,29 @@ export const updateMerchant = (item) => {
   return (dispatch) => {
     //dispatch(updateMerchantsBegin());
 
-    return API.update(item)
-      .then((json) => {
-        dispatch(updateMerchantSuccess((json.data)));
+    return fetch('/merchants/update', {
+      method: 'PUT',
+      headers: {
+        'Content-type': 'multipart/form-data'
+      },
+      body: getFormData(item)
+    }).then(({body}) => JSON.parse(body))
+      .then((body) => {
+        dispatch(updateMerchantSuccess((body)));
         dispatch(push(''));
       });
     //.catch((error) => dispatch(updateMerchantsBegin(error)));
   };
 };
 
-export const deleteMerchant = (item) => {
+export const deleteMerchant = (id) => {
   return (dispatch) => {
     //dispatch(deleteMerchantsBegin());
 
-    return API.delete(item)
-      .then((json) => {
-        dispatch(deleteMerchantSuccess((json.data)));
-        dispatch(push(''));
+    return fetch(`/merchants/delete/${id}`, {
+      method: 'DELETE'
+    }).then(() => {
+        dispatch(deleteMerchantSuccess((id)));
       });
     //.catch((error) => dispatch(deleteMerchantsBegin(error)));
   };
@@ -66,7 +92,7 @@ export const fetchMerchantsBegin = () => ({
 export const fetchMerchantsSuccess = (data) => ({
   type: FETCH_MERCHANTS_SUCCESS,
   payload: {
-    merchants: data.items
+    merchants: data.items || []
   }
 });
 

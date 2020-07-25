@@ -1,10 +1,14 @@
 import React, {useEffect, useState, Fragment} from 'react';
 import PropTypes from 'prop-types';
+import Pagination from 'react-paginate';
 import Merchant from '../merchant/merchant';
 import {PaginationWrapper, PAGINATION_CLASS_NAMES} from './merchant-list.styled';
-import Pagination from 'react-paginate';
-
-const DEFAULT_LIMIT = 1;
+import {
+  DEFAULT_LIMIT,
+  PAGE_RANGE_DISPLAYED,
+  MARGIN_PAGES_DISPLAYED,
+  LABELS
+} from './merchant-list.constants';
 
 const MerchantList = ({limit, merchants, count, deleteMerchant, updateVisibleMerchants}) => {
   const [offset, setOffset] = useState(0);
@@ -18,7 +22,7 @@ const MerchantList = ({limit, merchants, count, deleteMerchant, updateVisibleMer
 
   useEffect(() => {
     updateVisibleMerchants(offset, limit);
-  },[count]);
+  }, [count]);
 
   return (
     <div>
@@ -33,12 +37,12 @@ const MerchantList = ({limit, merchants, count, deleteMerchant, updateVisibleMer
           )}
           <PaginationWrapper>
             <Pagination
-              previousLabel={'previous'}
-              nextLabel={'next'}
-              breakLabel={'...'}
+              previousLabel={LABELS.prev}
+              nextLabel={LABELS.next}
+              breakLabel={LABELS.break}
               pageCount={pageCount}
-              marginPagesDisplayed={2}
-              pageRangeDisplayed={3}
+              marginPagesDisplayed={MARGIN_PAGES_DISPLAYED}
+              pageRangeDisplayed={PAGE_RANGE_DISPLAYED}
               onPageChange={handlePageClick}
               containerClassName={PAGINATION_CLASS_NAMES.container}
               pageClassName={PAGINATION_CLASS_NAMES.item}

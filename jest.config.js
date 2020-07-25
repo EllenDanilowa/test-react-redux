@@ -9,7 +9,7 @@ module.exports = {
     '<rootDir>/src/redux/*.js'
   ],
   setupFiles: [
-    '<rootDir>/config/jest/enzyme-adapter.js',
+    '<rootDir>/config/jest/setup.js',
     '<rootDir>/config/jest/polyfills.js',
     '<rootDir>/config/polyfills.js'
   ],

@@ -3,8 +3,10 @@ import renderer from 'react-test-renderer';
 import MerchantList from './merchant-list';
 import {mount} from 'enzyme';
 
-jest.mock('react-paginate', () => ({pageCount, onPageChange}) => (<div><p id="pageCount">'{pageCount}'</p><button id="pageChange" onClick={onPageChange}/></div>));
-jest.mock('../merchant/merchant', () => ({item}) => (<div>merchant: '{item.firstname} {item.lastname}'</div>));
+/* eslint-disable react/display-name, react/prop-types */
+jest.mock('react-paginate', () => ({pageCount}) => (<div><p id="pageCount">&apos;{pageCount}&apos;</p></div>));
+jest.mock('../merchant/merchant', () => ({item}) => (<div>merchant: &apos;{item.firstname} {item.lastname}&apos;</div>));
+/* eslint-enable react/display-name, react/prop-types */
 
 describe('MerchantList', () => {
   let element;
@@ -68,14 +70,5 @@ describe('MerchantList', () => {
     element = createElement({deleteMerchant,updateVisibleMerchants, count});
 
     expect(element).toMatchSnapshot();
-  });
-
-  xit('updates visible merchants if page change', () => {
-    element = createElement({deleteMerchant,updateVisibleMerchants, count}, false);
-
-    //expect(element.find('#pageCount').text()).toBe('2');
-    element.find('#pageChange').invoke('onClick')().then(() => {
-
-    });
   });
 });
