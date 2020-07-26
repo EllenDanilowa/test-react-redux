@@ -9,6 +9,8 @@ import {
   DELETE_MERCHANT_SUCCESS,
 } from './merchant.constants';
 
+const URL = '/merchants';
+
 const getFormData = (data) => {
   // Use it when send to a server
   // const formData = new FormData();
@@ -26,7 +28,7 @@ export const fetchMerchants = () => {
   return (dispatch) => {
     dispatch(fetchMerchantsBegin());
 
-    return fetch('/merchants', {
+    return fetch(URL, {
       method: 'GET'
     }).then(({body}) => JSON.parse(body))
       .then((body) => dispatch(fetchMerchantsSuccess(body)))
@@ -38,7 +40,7 @@ export const createMerchant = (item) => {
   return (dispatch) => {
     //dispatch(createMerchantsBegin());
 
-    return fetch('/merchants/create', {
+    return fetch(`${URL}/create`, {
       method: 'POST',
       headers: {
         'Content-type': 'multipart/form-data'
@@ -57,7 +59,7 @@ export const updateMerchant = (item) => {
   return (dispatch) => {
     //dispatch(updateMerchantsBegin());
 
-    return fetch('/merchants/update', {
+    return fetch(`${URL}/update`, {
       method: 'PUT',
       headers: {
         'Content-type': 'multipart/form-data'
@@ -76,7 +78,7 @@ export const deleteMerchant = (id) => {
   return (dispatch) => {
     //dispatch(deleteMerchantsBegin());
 
-    return fetch(`/merchants/delete/${id}`, {
+    return fetch(`${URL}/delete/${id}`, {
       method: 'DELETE'
     }).then(() => {
         dispatch(deleteMerchantSuccess((id)));

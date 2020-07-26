@@ -17,6 +17,8 @@ const initialState = {
   error: false
 };
 
+const sortBidsByDate = (a, b) => (new Date(b.created) - new Date(a.created));
+
 export default (state, action) => {
   if (typeof state === 'undefined') {
     return initialState;
@@ -31,12 +33,21 @@ export default (state, action) => {
       };
     }
     case FETCH_MERCHANTS_SUCCESS: {
+      debugger;
+      const items = action.payload.merchants.map((item) => {
+        item.bids = item.bids ? item.bids.sort(sortBidsByDate) : [];
+
+        return item;
+      });
+
+      debugger;
+
       return {
         ...state,
         fetched: true,
         loading: false,
-        items: action.payload.merchants,
-        count: action.payload.merchants.length
+        items,
+        count: items.length
       };
     }
     case FETCH_MERCHANTS_FAILURE: {
@@ -56,6 +67,7 @@ export default (state, action) => {
     }
     case CREATE_NEW_MERCHANT_SUCCESS: {
       const newItem = action.payload.merchant;
+      newItem.bids = newItem.bids ? newItem.bids.sort(sortBidsByDate) : [];
       const items = (state.items || []).concat([newItem]);
 
       return {

@@ -41,12 +41,12 @@ describe('Merchant reducer', () => {
     it('sets loading to false and updates items', () => {
       const state = {
         loading: true,
-        items: [0,1,2],
+        items: [{id: 0}, {id: 1}, {id: 2}],
         count: 3,
         fetched: false
       };
       const expectedState = {
-        items: [3,4],
+        items: [{id: 3, bids: []}, {id: 4, bids: []}],
         count: 2,
         loading: false,
         fetched: true
@@ -54,14 +54,59 @@ describe('Merchant reducer', () => {
       const action = {
         type: FETCH_MERCHANTS_SUCCESS,
         payload: {
-          merchants: [3,4]
+          merchants: [{id: 3}, {id: 4}]
+        }
+      };
+
+      expect(reducer(state, action)).toEqual(expectedState);
+    });
+
+    it('sorts bids by date created', () => {
+      const state = {
+        loading: true,
+        items: [0, 1, 2],
+        count: 3,
+        fetched: false
+      };
+      const expectedState = {
+        items: [{
+          bids: [
+            {
+              id: 2,
+              created: 1595202600000
+            },
+            {
+              id: 1,
+              created: 1585202600000
+            }
+          ]
+        }],
+        count: 1,
+        loading: false,
+        fetched: true
+      };
+      const action = {
+        type: FETCH_MERCHANTS_SUCCESS,
+        payload: {
+          merchants: [{
+            bids: [
+              {
+                id: 1,
+                created: 1585202600000
+              },
+              {
+                id: 2,
+                created: 1595202600000
+              }
+            ]
+          }]
         }
       };
 
       expect(reducer(state, action)).toEqual(expectedState);
     });
   });
-  
+
   describe('FETCH_MERCHANTS_FAILURE', () => {
     it('sets loading to false and error to true', () => {
       const state = {
@@ -80,11 +125,11 @@ describe('Merchant reducer', () => {
   describe('UPDATE_VISIBLE_MERCHANTS', () => {
     it('sets visible merchants according to settings from a payload', () => {
       const state = {
-        items: [0,1,2,3,4,5,6,7,8]
+        items: [0, 1, 2, 3, 4, 5, 6, 7, 8]
       };
       const expectedState = {
-        items: [0,1,2,3,4,5,6,7,8],
-        visibleItems: [5,6,7,8],
+        items: [0, 1, 2, 3, 4, 5, 6, 7, 8],
+        visibleItems: [5, 6, 7, 8],
       };
       const action = {
         type: UPDATE_VISIBLE_MERCHANTS,
@@ -101,17 +146,62 @@ describe('Merchant reducer', () => {
   describe('CREATE_NEW_MERCHANT_SUCCESS', () => {
     it('adds new item to existing items in state', () => {
       const state = {
-        items: [0,1,2,3],
-        count: 4
+        items: [{id: 0}, {id: 1}],
+        count: 2
       };
       const expectedState = {
-        items: [0,1,2,3,4],
-        count: 5
+        items: [{id: 0}, {id: 1}, {id: 2, bids: []}],
+        count: 3
       };
       const action = {
         type: CREATE_NEW_MERCHANT_SUCCESS,
         payload: {
-          merchant: 4
+          merchant: {id: 2}
+        }
+      };
+
+      expect(reducer(state, action)).toEqual(expectedState);
+    });
+
+    it('adds new item with sorted by date bids', () => {
+      const state = {
+        items: [{id: 0}],
+        count: 1
+      };
+      const expectedState = {
+        items: [
+          {id: 0},
+          {
+            id: 2,
+            bids: [
+              {
+                id: 2,
+                created: 1595202600000
+              },
+              {
+                id: 1,
+                created: 1585202600000
+              }
+            ]
+          }],
+        count: 2
+      };
+      const action = {
+        type: CREATE_NEW_MERCHANT_SUCCESS,
+        payload: {
+          merchant: {
+            id: 2,
+            bids: [
+              {
+                id: 1,
+                created: 1585202600000
+              },
+              {
+                id: 2,
+                created: 1595202600000
+              }
+            ]
+          }
         }
       };
 
