@@ -33,14 +33,11 @@ export default (state, action) => {
       };
     }
     case FETCH_MERCHANTS_SUCCESS: {
-      debugger;
       const items = action.payload.merchants.map((item) => {
         item.bids = item.bids ? item.bids.sort(sortBidsByDate) : [];
 
         return item;
       });
-
-      debugger;
 
       return {
         ...state,
